@@ -1,0 +1,1 @@
+const kStorageIsLoggedIn = 'is_logged_in';
