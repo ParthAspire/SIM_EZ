@@ -6,28 +6,37 @@ import 'package:sim_ez/app/Widgets/primary_button.dart';
 import 'package:sim_ez/app/common/app_constants.dart';
 import 'package:sim_ez/app/common/color_constants.dart';
 import 'package:sim_ez/app/common/image_constants.dart';
-import 'package:sim_ez/app/screens/authentication/login/controller/login_controller.dart';
+import 'package:sim_ez/app/screens/authentication/sign_up/controller/sign_up_controller.dart';
 import 'package:sim_ez/app/utils/text_styles.dart';
 
-class LoginScreen extends GetView<LoginController> {
-  const LoginScreen({Key? key}) : super(key: key);
+class SignUpScreen extends GetView<SignUpController> {
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      /// email-id textfield
+      /// name textfield
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 34),
         child: commonTextField(
+          controller: controller.nameController,
+          hintText: kHintEnterYourName,
+        ),
+      ),
+
+      /// email-id textfield
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 34, vertical: 12),
+        child: commonTextField(
           controller: controller.emailIdController,
-          hintText: kEmailId,
+          hintText: kHintEnterYourEmail,
         ),
       ),
 
       /// password textfield
       Obx(() {
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 34, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 34),
           child: commonTextField(
               controller: controller.passwordController,
               hintText: kPassword,
@@ -47,6 +56,29 @@ class LoginScreen extends GetView<LoginController> {
         );
       }),
 
+      /// confirm password textfield
+      Obx(() {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 34, vertical: 12),
+          child: commonTextField(
+              controller: controller.confirmPasswordController,
+              hintText: kPassword,
+              obscure: !controller.isShowConfirmPassword.value,
+              suffixIcon: GestureDetector(
+                onTap: () {
+                  controller.isShowConfirmPassword.value =
+                      !controller.isShowConfirmPassword.value;
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: controller.isShowConfirmPassword.value
+                      ? Icon(Icons.remove_red_eye)
+                      : SvgPicture.asset(kIconPasswordOff),
+                ),
+              )),
+        );
+      }),
+
       /// forgot password
       const Padding(
         padding: EdgeInsets.only(right: 34, bottom: 30),
@@ -59,13 +91,13 @@ class LoginScreen extends GetView<LoginController> {
         ),
       ),
 
-      /// login button
+      /// signUp button
       primaryButton(
-          onPress: () {}, buttonTxt: kLogin, height: 40, width: Get.width * .8),
+          onPress: () {}, buttonTxt: kSignup, height: 40, width: Get.width * .8),
 
       /// 'or login with' widget
       Padding(
-        padding: const EdgeInsets.only(top: 44, bottom: 26),
+        padding: const EdgeInsets.only(top: 22, bottom: 26),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -92,6 +124,21 @@ class LoginScreen extends GetView<LoginController> {
           SizedBox(width: 10),
           SvgPicture.asset(kIconGoogle),
         ],
+      ),
+
+      /// terms & privacy policy text
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 36,vertical: 30),
+        child: RichText(textAlign: TextAlign.center,
+          text: TextSpan(
+            children: [
+              TextSpan(text: 'by registering, you agree to our ',style: TextStyles.k10ColorBlackBold400),
+              TextSpan(text: 'terms & condition ',style: TextStyles.k10Color1ADDD0Bold400),
+              TextSpan(text: 'and ',style: TextStyles.k10ColorBlackBold400),
+              TextSpan(text: 'privacy policy.',style: TextStyles.k10Color1ADDD0Bold400),
+            ],
+          ),
+        ),
       ),
     ]);
   }

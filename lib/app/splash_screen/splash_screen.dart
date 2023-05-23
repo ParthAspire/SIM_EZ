@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
     if (isLoggedIn) {
       // navigate to dashboard screen
     } else {
-      Get.offAllNamed(kRouteLoginScreen);
+      Get.offAllNamed(kRouteMainAuthScreen);
       // navigate to login screen
     }
   }
