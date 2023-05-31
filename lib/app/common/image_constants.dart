@@ -10,3 +10,4 @@ const kIconLogo = '$_iconPath/logo.svg';
 const kIconPasswordOff = '$_iconPath/password_off_icon.svg';
 const kIconFB = '$_iconPath/fb_icon.svg';
 const kIconGoogle = '$_iconPath/google_icon.svg';
+const kIconSearch = '$_iconPath/search_icon.svg';

@@ -61,7 +61,9 @@ class LoginScreen extends GetView<LoginController> {
 
       /// login button
       primaryButton(
-          onPress: () {}, buttonTxt: kLogin, height: 40, width: Get.width * .8),
+          onPress: () {
+            controller.navigateToLoginScreen();
+          }, buttonTxt: kLogin, height: 40, width: Get.width * .8),
 
       /// 'or login with' widget
       Padding(

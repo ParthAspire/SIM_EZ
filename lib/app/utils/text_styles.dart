@@ -4,7 +4,9 @@ import 'package:sim_ez/app/common/color_constants.dart';
 
 class TextStyles {
   static const double k10FontSize = 10;
+  static const double k12FontSize = 12;
   static const double k14FontSize = 14;
+  static const double k20FontSize = 20;
 
   static const k10ColorBlackBold400 = TextStyle(
     fontSize: k10FontSize,
@@ -15,6 +17,14 @@ class TextStyles {
   static const k10Color1ADDD0Bold400 = TextStyle(
     fontSize: k10FontSize,
     color: kColor1ADDD0,
+    fontWeight: FontWeight.w400,
+    fontFamily: fontFamily,
+  );
+
+
+  static const k12kColor9098B1Bold400 = TextStyle(
+    fontSize: k12FontSize,
+    color: kColor9098B1,
     fontWeight: FontWeight.w400,
     fontFamily: fontFamily,
   );
@@ -31,6 +41,12 @@ class TextStyles {
     fontWeight: FontWeight.w400,
     fontFamily: fontFamily,
   );
+  static const k14kColor9098B1Bold400 = TextStyle(
+    fontSize: k14FontSize,
+    color: kColor9098B1,
+    fontWeight: FontWeight.w400,
+    fontFamily: fontFamily,
+  );
   static const k14Color686868Bold400 = TextStyle(
     fontSize: k14FontSize,
     color: kColor686868,
@@ -42,6 +58,13 @@ class TextStyles {
     color: kColorPrimary,
     fontWeight: FontWeight.w400,
     fontStyle: FontStyle.italic,
+    fontFamily: fontFamily,
+  );
+
+  static const k20ColorBlackBold400 = TextStyle(
+    fontSize: k20FontSize,
+    color: kColorBlack,
+    fontWeight: FontWeight.w400,
     fontFamily: fontFamily,
   );
 }

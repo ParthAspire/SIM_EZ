@@ -13,7 +13,8 @@ Widget commonTextField(
     double elevation = 8.0,
     int maxLines = 1,
     bool enabled = true,
-    bool obscure = false,}) {
+    bool obscure = false,
+    TextStyle hintTextStyle = TextStyles.k14Color686868Bold400}) {
   return SizedBox(
     height: 50,
     child: TextFormField(
@@ -29,7 +30,7 @@ Widget commonTextField(
         fillColor: kColorECECEC,
         filled: true,
         hintText: hintText,
-        hintStyle: TextStyles.k14Color686868Bold400,
+        hintStyle: hintTextStyle,
         prefixIcon: preFixIcon,
         suffixIcon: suffixIcon,
         counterText: '',
