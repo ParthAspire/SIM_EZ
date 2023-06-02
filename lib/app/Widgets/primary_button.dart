@@ -8,6 +8,7 @@ Widget primaryButton({
   required String buttonTxt,
   double? width,
   double? height,
+  TextStyle  textStyle =TextStyles.k14ColorWhiteBold400,
 }) {
   return MaterialButton(
     padding: EdgeInsets.zero,
@@ -24,7 +25,7 @@ Widget primaryButton({
       ),
       child: Text(
         buttonTxt,
-        style: TextStyles.k14ColorWhiteBold400,
+        style: textStyle,
       ),
     ),
   );

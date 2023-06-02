@@ -14,49 +14,10 @@ class MyESimBaseScreen extends GetView<MyESimBaseController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            appLogo(),
-            welcomeText(),
-            searchTextField(),
-          ],
-        ),
+
       ),
     );
   }
 
-  appLogo() {
-    return Align(
-      heightFactor: 1.5,
-      alignment: Alignment.center,
-      child: SvgPicture.asset(
-        kIconLogo,
-        height: 50,
-      ),
-    );
-  }
 
-  welcomeText() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 18),
-      child: Text('$kHello, ${controller.userName.value}',
-          style: TextStyles.k20ColorBlackBold400),
-    );
-  }
-
-  searchTextField() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 26),
-      child: commonTextField(
-        controller: controller.searchController,
-        hintText: kMyESimSearchText,
-        hintTextStyle: TextStyles.k12kColor9098B1Bold400,
-        preFixIcon: Padding(
-          padding: const EdgeInsets.all(14.0),
-          child: SvgPicture.asset(kIconSearch),
-        ),
-      ),
-    );
-  }
 }

@@ -39,6 +39,7 @@ dependencies:
   logger: ^1.3.0
   flutter_svg: ^2.0.6
   flutter_secure_storage: ^8.0.0
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -82,6 +83,9 @@ flutter:
     - family: Audiowide
       fonts:
         - asset: lib/assets/font/audiowide/Audiowide-Regular.ttf
+    - family: Arial
+      fonts:
+        - asset: lib/assets/font/arial/ARIAL.TTF
 
   #   - family: Trajan Pro
   #     fonts:

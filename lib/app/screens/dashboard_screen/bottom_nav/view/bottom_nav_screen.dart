@@ -4,6 +4,7 @@ import 'package:sim_ez/app/common/app_constants.dart';
 import 'package:sim_ez/app/common/color_constants.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/bottom_nav/controller/bottom_nav_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/my_esims/base/view/my_esims_base_screen.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/stores/base/view/store_base_screen.dart';
 
 class BottomNavScreen extends GetView<BottomNavController> {
   const BottomNavScreen({Key? key}) : super(key: key);
@@ -23,8 +24,7 @@ class BottomNavScreen extends GetView<BottomNavController> {
         child: IndexedStack(
           index: controller.index.value,
           children: <Widget>[
-
-            Container(child: Text('Store')),
+            StoreBaseScreen(),
             MyESimBaseScreen(),
             Container(child: Text('Profile')),
           ],
@@ -34,42 +34,53 @@ class BottomNavScreen extends GetView<BottomNavController> {
   }
 
   Widget _navigationButtons() {
-    return Container(
-      color: kColorBlack,
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      height: 50,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          InkWell(
-            child: Text(
-              kStore,
-              style: TextStyle(fontSize: 16.0, color: Colors.white),
+    return Obx(() {
+      return Container(
+        color: kColorBlack,
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        height: 50,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            InkWell(
+              child: Text(
+                kStore,
+                style: TextStyle(
+                    fontSize: 16.0,
+                    color:
+                    controller.index.value == 0 ? kColor1ADDD0 : kColorWhite),
+              ),
+              onTap: () {
+                controller.index.value = 0;
+              },
             ),
-            onTap: () {
-              controller.index.value = 0;
-            },
-          ),
-          InkWell(
-            child: Text(
-              kMyeSim,
-              style: TextStyle(fontSize: 16.0, color: Colors.white),
+            InkWell(
+              child: Text(
+                kMyeSim,
+                style: TextStyle(
+                    fontSize: 16.0,
+                    color:
+                    controller.index.value == 1 ? kColor1ADDD0 : kColorWhite),
+              ),
+              onTap: () {
+                controller.index.value = 1;
+              },
             ),
-            onTap: () {
-              controller.index.value = 1;
-            },
-          ),
-          InkWell(
-            child: Text(
-              kProfile,
-              style: TextStyle(fontSize: 16.0, color: Colors.white),
+            InkWell(
+              child: Text(
+                kProfile,
+                style: TextStyle(
+                    fontSize: 16.0,
+                    color:
+                    controller.index.value == 2 ? kColor1ADDD0 : kColorWhite),
+              ),
+              onTap: () {
+                controller.index.value = 2;
+              },
             ),
-            onTap: () {
-              controller.index.value = 2;
-            },
-          ),
-        ],
-      ),
-    );
+          ],
+        ),
+      );
+    });
   }
 }
