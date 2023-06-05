@@ -172,6 +172,12 @@ class TextStyles {
     fontWeight: FontWeight.w400,
     fontFamily: fontFamilyArial,
   );
+  static const k16kColorBlackBold400Arial = TextStyle(
+    fontSize: k16FontSize,
+    color: kColorBlack,
+    fontWeight: FontWeight.w400,
+    fontFamily: fontFamilyArial,
+  );
 
   static const k20ColorBlackBold400 = TextStyle(
     fontSize: k20FontSize,

@@ -26,3 +26,4 @@ const kIconCoverage = '$_iconPath/coverage_icon.svg';
 const kIconBarCode = '$_iconPath/bar_code_icon.svg';
 const kIconCarrier = '$_iconPath/carrier_icon.svg';
 const kIconWarning = '$_iconPath/warning_icon.svg';
+const kIconDefaultUser = '$_iconPath/default_user_icon.svg';

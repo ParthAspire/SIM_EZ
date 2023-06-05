@@ -4,6 +4,7 @@ import 'package:sim_ez/app/common/app_constants.dart';
 import 'package:sim_ez/app/common/color_constants.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/bottom_nav/controller/bottom_nav_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/my_esims/base/view/my_esims_base_screen.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/profile/base/view/profile_base_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/stores/base/view/store_base_screen.dart';
 
 class BottomNavScreen extends GetView<BottomNavController> {
@@ -26,7 +27,7 @@ class BottomNavScreen extends GetView<BottomNavController> {
           children: <Widget>[
             StoreBaseScreen(),
             MyESimBaseScreen(),
-            Container(child: Text('Profile')),
+            ProfileBaseScreen(),
           ],
         ),
       );

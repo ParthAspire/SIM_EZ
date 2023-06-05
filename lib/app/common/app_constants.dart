@@ -37,6 +37,17 @@ const String kDeviceNotSupportedText='You can’t install an Sim-ez on your devi
 const String kOrLoginWith   = 'or Login with ';
 const String kMyESimSearchText   = 'search data pack for 200+ countries';
 
+
+/// profile tab strings
+const String kAccountInformation = 'Account Information';
+const String kSavedCards = 'Saved cards';
+const String kOrders = 'Orders';
+const String kFAQ = 'FAQ';
+const String kContactUs = 'Contact us';
+const String kMoreInfo = 'More info';
+const String kRateApp = 'Rate App';
+const String kLogOut = 'Log Out';
+
 class AppConstants {
   String currentRoute = '';
 
