@@ -5,3 +5,5 @@ const kRouteBottomNavScreen = '/BottomNavScreen';
 const kRouteSelectedCountrySimsScreen = '/SelectedCountrySimsScreen';
 const kRouteSimInfoScreen = '/SimInfoScreen';
 const kRouteDeviceCompatibilityScreen = '/DeviceCompatibilityScreen';
+const kRouteAdditionalInfoScreen = '/AdditionalInfoScreen';
+const kRouteAccountInfoBaseScreen = '/AccountInfoBaseScreen';

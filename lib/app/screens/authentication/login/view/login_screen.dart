@@ -21,6 +21,9 @@ class LoginScreen extends GetView<LoginController> {
         child: commonTextField(
           controller: controller.emailIdController,
           hintText: kEmailId,
+          labelText: kEmailId,
+          filledColor: kColorECECEC,
+          isShowElevation: false,
         ),
       ),
 
@@ -31,6 +34,9 @@ class LoginScreen extends GetView<LoginController> {
           child: commonTextField(
               controller: controller.passwordController,
               hintText: kPassword,
+              labelText: kPassword,
+              filledColor: kColorECECEC,
+              isShowElevation: false,
               obscure: !controller.isShowPassword.value,
               suffixIcon: GestureDetector(
                 onTap: () {

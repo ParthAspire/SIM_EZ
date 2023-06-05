@@ -37,15 +37,20 @@ class ProfileBaseScreen extends GetView<ProfileBaseController> {
               margin: EdgeInsets.only(top: 14),
               child: Column(
                 children: [
-                  ListTile(
-                    title: const Text(kAccountInformation,
-                        style: TextStyles.k16kColorBlackBold400Arial),
-                    trailing: InkWell(
-                      onTap: () {},
-                      child: const Icon(Icons.navigate_next_outlined,
-                          size: 24, color: kColorBlack),
+                  InkWell(
+                    onTap: () {
+                      controller.navigateToAccountInfoScreen();
+                    },
+                    child: ListTile(
+                      title: const Text(kAccountInformation,
+                          style: TextStyles.k16kColorBlackBold400Arial),
+                      trailing: InkWell(
+                        child: const Icon(Icons.navigate_next_outlined,
+                            size: 24, color: kColorBlack),
+                      ),
                     ),
-                  ), Container(height: 0.3,color: kColorD9D9D9),
+                  ),
+                  Container(height: 0.3, color: kColorD9D9D9),
                   ListTile(
                     title: const Text(kSavedCards,
                         style: TextStyles.k16kColorBlackBold400Arial),
@@ -54,7 +59,8 @@ class ProfileBaseScreen extends GetView<ProfileBaseController> {
                       child: const Icon(Icons.navigate_next_outlined,
                           size: 24, color: kColorBlack),
                     ),
-                  ),  Container(height: 0.3,color: kColorD9D9D9),
+                  ),
+                  Container(height: 0.3, color: kColorD9D9D9),
                   ListTile(
                     title: const Text(kOrders,
                         style: TextStyles.k16kColorBlackBold400Arial),
@@ -85,7 +91,8 @@ class ProfileBaseScreen extends GetView<ProfileBaseController> {
                       child: const Icon(Icons.navigate_next_outlined,
                           size: 24, color: kColorBlack),
                     ),
-                  ), Container(height: 0.3,color: kColorD9D9D9),
+                  ),
+                  Container(height: 0.3, color: kColorD9D9D9),
                   ListTile(
                     title: const Text(kContactUs,
                         style: TextStyles.k16kColorBlackBold400Arial),

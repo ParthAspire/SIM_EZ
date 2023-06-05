@@ -61,6 +61,7 @@ class StoreBaseScreen extends GetView<StoreBaseController> {
       child: commonTextField(
         controller: controller.searchController,
         hintText: kMyESimSearchText,
+        labelText: kMyESimSearchText,
         hintTextStyle: TextStyles.k12kColor9098B1Bold400Arial,
         preFixIcon: Padding(
           padding: const EdgeInsets.all(14.0),

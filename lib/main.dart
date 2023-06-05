@@ -6,6 +6,8 @@ import 'package:sim_ez/app/common/rounting_constants.dart';
 import 'package:sim_ez/app/screens/authentication/base/view/main_auth_screen.dart';
 import 'package:sim_ez/app/screens/authentication/login/view/login_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/bottom_nav/view/bottom_nav_screen.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/base/view/account_info_base_screen.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/stores/selected_country_sims/additional_info/base/view/additional_info_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/stores/selected_country_sims/base/view/selected_country_sims_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/stores/selected_country_sims/device_compatibility/view/device_compatibility_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/stores/selected_country_sims/sim_info_screen/view/sim_info_screen.dart';
@@ -55,6 +57,14 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: kRouteDeviceCompatibilityScreen,
           page: () => DeviceCompatibilityScreen(),
+        ),
+        GetPage(
+          name: kRouteAdditionalInfoScreen,
+          page: () => AdditionalInfoScreen(),
+        ),
+        GetPage(
+          name: kRouteAccountInfoBaseScreen,
+          page: () => AccountInfoBaseScreen(),
         ),
       ],
     );

@@ -21,6 +21,9 @@ class SignUpScreen extends GetView<SignUpController> {
         child: commonTextField(
           controller: controller.nameController,
           hintText: kHintEnterYourName,
+          labelText: kHintEnterYourName,
+          filledColor: kColorECECEC,
+          isShowElevation: false,
         ),
       ),
 
@@ -30,6 +33,9 @@ class SignUpScreen extends GetView<SignUpController> {
         child: commonTextField(
           controller: controller.emailIdController,
           hintText: kHintEnterYourEmail,
+          labelText: kHintEnterYourEmail,
+          filledColor: kColorECECEC,
+          isShowElevation: false,
         ),
       ),
 
@@ -40,6 +46,9 @@ class SignUpScreen extends GetView<SignUpController> {
           child: commonTextField(
               controller: controller.passwordController,
               hintText: kPassword,
+              labelText: kPassword,
+              filledColor: kColorECECEC,
+              isShowElevation: false,
               obscure: !controller.isShowPassword.value,
               suffixIcon: GestureDetector(
                 onTap: () {
@@ -63,6 +72,9 @@ class SignUpScreen extends GetView<SignUpController> {
           child: commonTextField(
               controller: controller.confirmPasswordController,
               hintText: kPassword,
+              labelText: kPassword,
+              filledColor: kColorECECEC,
+              isShowElevation: false,
               obscure: !controller.isShowConfirmPassword.value,
               suffixIcon: GestureDetector(
                 onTap: () {

@@ -296,18 +296,23 @@ class SimInfoScreen extends GetView<SimInfoController> {
             ),
 
             /// show more
-            Container(
-              margin: const EdgeInsets.only(top: 26),
-              height: 36,
-              width: 230,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: kColorBlack),
-              ),
-              alignment: Alignment.center,
-              child: const Text(
-                kShowMore,
-                style: TextStyles.k12kColorBlackBold400Arial,
+            InkWell(
+              onTap: () {
+                controller.navigateToAdditionalInfoScreen();
+              },
+              child: Container(
+                margin: const EdgeInsets.only(top: 26),
+                height: 36,
+                width: 230,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: kColorBlack),
+                ),
+                alignment: Alignment.center,
+                child: const Text(
+                  kShowMore,
+                  style: TextStyles.k12kColorBlackBold400Arial,
+                ),
               ),
             ),
 

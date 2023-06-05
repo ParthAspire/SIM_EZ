@@ -20,4 +20,8 @@ class SimInfoController extends GetxController {
   void navigateToDeviceCompatibilityScreen() {
     Get.toNamed(kRouteDeviceCompatibilityScreen);
   }
+
+  void navigateToAdditionalInfoScreen() {
+    Get.toNamed(kRouteAdditionalInfoScreen);
+  }
 }

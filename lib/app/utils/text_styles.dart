@@ -23,6 +23,12 @@ class TextStyles {
     fontFamily: fontFamilyArial,
   );
 
+  static const k10ColorRedBold400 = TextStyle(
+    fontSize: k10FontSize,
+    color: kColorRed,
+    fontWeight: FontWeight.w400,
+    fontFamily: fontFamilyAudiowide,
+  );
   static const k10ColorBlackBold400 = TextStyle(
     fontSize: k10FontSize,
     color: kColorBlack,
@@ -34,6 +40,12 @@ class TextStyles {
     color: kColorWhite,
     fontWeight: FontWeight.w400,
     fontFamily: fontFamilyAudiowide,
+  );
+  static const k10ColorWhiteBold400Arial = TextStyle(
+    fontSize: k10FontSize,
+    color: kColorWhite,
+    fontWeight: FontWeight.w400,
+    fontFamily: fontFamilyArial,
   );
   static const k10Color1ADDD0Bold400 = TextStyle(
     fontSize: k10FontSize,
@@ -85,6 +97,12 @@ class TextStyles {
     fontWeight: FontWeight.w400,
     fontFamily: fontFamilyArial,
   );
+  static const k12kColor1ADDD0Bold400Arial = TextStyle(
+    fontSize: k12FontSize,
+    color: kColor1ADDD0,
+    fontWeight: FontWeight.w400,
+    fontFamily: fontFamilyArial,
+  );
 
   static const k14ColorWhiteBold400 = TextStyle(
     fontSize: k14FontSize,
@@ -95,6 +113,12 @@ class TextStyles {
   static const k14ColorWhiteBold400Arial = TextStyle(
     fontSize: k14FontSize,
     color: kColorWhite,
+    fontWeight: FontWeight.w400,
+    fontFamily: fontFamilyArial,
+  );
+  static const k14ColorBlackBold400Arial = TextStyle(
+    fontSize: k14FontSize,
+    color: kColorBlack,
     fontWeight: FontWeight.w400,
     fontFamily: fontFamilyArial,
   );

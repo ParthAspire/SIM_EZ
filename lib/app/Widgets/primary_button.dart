@@ -9,6 +9,8 @@ Widget primaryButton({
   double? width,
   double? height,
   TextStyle  textStyle =TextStyles.k14ColorWhiteBold400,
+  Color bgColor = kColorPrimary,
+  Color borderColor = kColorPrimary,
 }) {
   return MaterialButton(
     padding: EdgeInsets.zero,
@@ -21,7 +23,8 @@ Widget primaryButton({
       alignment: Alignment.center,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: kColorPrimary,
+        color: bgColor,
+        border: Border.all(color: borderColor)
       ),
       child: Text(
         buttonTxt,
