@@ -7,3 +7,5 @@ const kRouteSimInfoScreen = '/SimInfoScreen';
 const kRouteDeviceCompatibilityScreen = '/DeviceCompatibilityScreen';
 const kRouteAdditionalInfoScreen = '/AdditionalInfoScreen';
 const kRouteAccountInfoBaseScreen = '/AccountInfoBaseScreen';
+const kRouteChangePasswordScreen = '/ChangePasswordScreen';
+const kRouteChangeEmailScreen = '/ChangeEmailScreen';

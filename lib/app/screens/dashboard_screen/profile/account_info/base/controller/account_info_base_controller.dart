@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sim_ez/app/common/rounting_constants.dart';
 
 class AccountInfoBaseController extends GetxController {
   TextEditingController firstNameController = TextEditingController();
@@ -7,5 +8,13 @@ class AccountInfoBaseController extends GetxController {
   TextEditingController emailIdController = TextEditingController();
   TextEditingController currentPasswordController = TextEditingController();
 
-  RxBool isReceiveEmail = false.obs;
+  RxBool isReceiveEmail = true.obs;
+
+  void navigateToChangePasswordScreen() {
+    Get.toNamed(kRouteChangePasswordScreen);
+  }
+
+  void navigateToChangeEmailScreen() {
+    Get.toNamed(kRouteChangeEmailScreen);
+  }
 }

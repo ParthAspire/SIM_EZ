@@ -33,45 +33,63 @@ class AccountInfoBaseScreen extends GetView<AccountInfoBaseController> {
 
             /// first name textfield
             Padding(
-              padding: const EdgeInsets.only(top: 24,bottom: 20),
+              padding: const EdgeInsets.only(top: 24, bottom: 20),
               child: commonTextField(
                   controller: controller.firstNameController,
                   hintText: kFirstName,
-                  labelText: kFirstName),
+                  labelText: kFirstName,
+                  enabled: false),
             ),
 
             /// last name textfield
             commonTextField(
                 controller: controller.lastNameController,
                 hintText: kLastName,
-                labelText: kLastName),
+                labelText: kLastName,
+                enabled: false),
 
             /// email name textfield
-            Padding(
-              padding: const EdgeInsets.only(top: 20,bottom: 20),
+            InkWell(
+              onTap: () {
+                controller.navigateToChangeEmailScreen();
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(top: 20, bottom: 20),
+                child: commonTextField(
+                    controller: controller.emailIdController,
+                    hintText: kEmailId,
+                    labelText: kEmailId,
+                    enabled: false,
+                    suffixIcon: primaryButton(
+                        onPress: () {
+                          controller.navigateToChangeEmailScreen();
+                        },
+                        buttonTxt: kChange.toUpperCase(),
+                        width: 75,
+                        height: 22,
+                        textStyle: TextStyles.k10ColorWhiteBold400Arial)),
+              ),
+            ),
+
+            /// current password name textfield
+            InkWell(
+              onTap: () {
+                controller.navigateToChangePasswordScreen();
+              },
               child: commonTextField(
-                  controller: controller.emailIdController,
-                  hintText: kEmailId,
-                  labelText: kEmailId,
+                  controller: controller.currentPasswordController,
+                  hintText: kCurrentPassword,
+                  labelText: kCurrentPassword,
+                  enabled: false,
                   suffixIcon: primaryButton(
-                      onPress: () {},
-                      buttonTxt: kChange.toUpperCase(),
+                      onPress: () {
+                        controller.navigateToChangePasswordScreen();
+                      },
+                      buttonTxt: kCreate.toUpperCase(),
                       width: 75,
                       height: 22,
                       textStyle: TextStyles.k10ColorWhiteBold400Arial)),
             ),
-
-            /// current password name textfield
-            commonTextField(
-                controller: controller.currentPasswordController,
-                hintText: kCurrentPassword,
-                labelText: kCurrentPassword,
-                suffixIcon: primaryButton(
-                    onPress: () {},
-                    buttonTxt: kCreate.toUpperCase(),
-                    width: 75,
-                    height: 22,
-                    textStyle: TextStyles.k10ColorWhiteBold400Arial)),
 
             /// check box
             Padding(
@@ -83,7 +101,8 @@ class AccountInfoBaseScreen extends GetView<AccountInfoBaseController> {
                       activeColor: kColorB0B0B0,
                       checkColor: kColorBlack,
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      visualDensity: VisualDensity(horizontal: -4, vertical: -4),
+                      visualDensity:
+                          VisualDensity(horizontal: -4, vertical: -4),
                       value: controller.isReceiveEmail.value,
                       onChanged: (value) {
                         controller.isReceiveEmail.value =
@@ -117,7 +136,10 @@ class AccountInfoBaseScreen extends GetView<AccountInfoBaseController> {
             Spacer(),
 
             /// save changes button
-            primaryButton(onPress: () {}, buttonTxt: kSaveChanges, height: 38),
+            primaryButton(
+                onPress: () {},
+                buttonTxt: kSaveChanges.toUpperCase(),
+                height: 38),
           ],
         ),
       ),

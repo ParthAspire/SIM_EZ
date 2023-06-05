@@ -28,3 +28,6 @@ const kIconCarrier = '$_iconPath/carrier_icon.svg';
 const kIconWarning = '$_iconPath/warning_icon.svg';
 const kIconDefaultUser = '$_iconPath/default_user_icon.svg';
 const kIconActivity = '$_iconPath/activity_icon.svg';
+const kIconStore = '$_iconPath/store_icon.svg';
+const kIconBottomBarSim = '$_iconPath/bottom_bar_sim_icon.svg';
+const kIconBottomBarProfile = '$_iconPath/bottom_bar_profile_icon.svg';
