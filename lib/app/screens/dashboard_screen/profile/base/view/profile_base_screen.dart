@@ -93,13 +93,18 @@ class ProfileBaseScreen extends GetView<ProfileBaseController> {
                     ),
                   ),
                   Container(height: 0.3, color: kColorD9D9D9),
-                  ListTile(
-                    title: const Text(kContactUs,
-                        style: TextStyles.k16kColorBlackBold400Arial),
-                    trailing: InkWell(
-                      onTap: () {},
-                      child: const Icon(Icons.navigate_next_outlined,
-                          size: 24, color: kColorBlack),
+                  InkWell(
+                    onTap: () {
+                      controller.navigateToContactUsScreen();
+                    },
+                    child: ListTile(
+                      title: const Text(kContactUs,
+                          style: TextStyles.k16kColorBlackBold400Arial),
+                      trailing: InkWell(
+                        onTap: () { controller.navigateToContactUsScreen();},
+                        child: const Icon(Icons.navigate_next_outlined,
+                            size: 24, color: kColorBlack),
+                      ),
                     ),
                   ),
                   Container(height: 0.3, color: kColorD9D9D9),

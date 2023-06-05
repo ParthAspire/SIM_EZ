@@ -9,3 +9,5 @@ const kRouteAdditionalInfoScreen = '/AdditionalInfoScreen';
 const kRouteAccountInfoBaseScreen = '/AccountInfoBaseScreen';
 const kRouteChangePasswordScreen = '/ChangePasswordScreen';
 const kRouteChangeEmailScreen = '/ChangeEmailScreen';
+const kRouteCreatePasswordScreen = '/CreatePasswordScreen';
+const kRouteContactUsScreen = '/ContactUsScreen';

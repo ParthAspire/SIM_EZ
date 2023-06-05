@@ -15,6 +15,7 @@ class AccountInfoBaseController extends GetxController {
   }
 
   void navigateToChangeEmailScreen() {
-    Get.toNamed(kRouteChangeEmailScreen);
+    // Get.toNamed(kRouteChangeEmailScreen);
+    Get.toNamed(kRouteCreatePasswordScreen);
   }
 }

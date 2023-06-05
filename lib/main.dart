@@ -9,6 +9,8 @@ import 'package:sim_ez/app/screens/dashboard_screen/bottom_nav/view/bottom_nav_s
 import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/base/view/account_info_base_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/change_email/view/change_email_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/change_password/view/change_password_screen.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/create_password/view/create_password_screen.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/profile/contact_us/view/contact_us_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/stores/selected_country_sims/additional_info/base/view/additional_info_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/stores/selected_country_sims/base/view/selected_country_sims_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/stores/selected_country_sims/device_compatibility/view/device_compatibility_screen.dart';
@@ -75,6 +77,14 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: kRouteChangeEmailScreen,
           page: () => ChangeEmailScreen(),
+        ),
+        GetPage(
+          name: kRouteCreatePasswordScreen,
+          page: () => CreatePasswordScreen(),
+        ),
+        GetPage(
+          name: kRouteContactUsScreen,
+          page: () => ContactUsScreen(),
         ),
       ],
     );

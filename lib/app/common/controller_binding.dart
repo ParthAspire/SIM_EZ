@@ -7,7 +7,9 @@ import 'package:sim_ez/app/screens/dashboard_screen/my_esims/base/controller/my_
 import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/base/controller/account_info_base_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/change_email/controller/change_email_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/change_password/controller/change_password_controller.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/create_password/controller/create_password_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/base/controller/profile_base_controller.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/profile/contact_us/controller/contact_us_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/stores/base/controller/store_base_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/stores/selected_country_sims/additional_info/base/controller/additional_info_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/stores/selected_country_sims/base/controller/selected_country_sims_controller.dart';
@@ -71,6 +73,14 @@ class ControllerBinding extends Bindings {
     );
     Get.lazyPut<ChangePasswordController>(
       () => ChangePasswordController(),
+      fenix: true,
+    );
+    Get.lazyPut<CreatePasswordController>(
+      () => CreatePasswordController(),
+      fenix: true,
+    );
+    Get.lazyPut<ContactUsController>(
+      () => ContactUsController(),
       fenix: true,
     );
   }
