@@ -6,6 +6,7 @@ import 'package:sim_ez/app/common/rounting_constants.dart';
 import 'package:sim_ez/app/screens/authentication/base/view/main_auth_screen.dart';
 import 'package:sim_ez/app/screens/authentication/login/view/login_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/bottom_nav/view/bottom_nav_screen.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/my_esims/purchased_sim_info/view/purchased_sim_info_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/base/view/account_info_base_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/change_email/view/change_email_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/change_password/view/change_password_screen.dart';
@@ -85,6 +86,10 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: kRouteContactUsScreen,
           page: () => ContactUsScreen(),
+        ),
+        GetPage(
+          name: kRoutePurchasedSimInfoScreen,
+          page: () => PurchasedSimInfoScreen(),
         ),
       ],
     );

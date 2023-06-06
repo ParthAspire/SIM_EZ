@@ -11,3 +11,4 @@ const kRouteChangePasswordScreen = '/ChangePasswordScreen';
 const kRouteChangeEmailScreen = '/ChangeEmailScreen';
 const kRouteCreatePasswordScreen = '/CreatePasswordScreen';
 const kRouteContactUsScreen = '/ContactUsScreen';
+const kRoutePurchasedSimInfoScreen = '/PurchasedSimInfoScreen';

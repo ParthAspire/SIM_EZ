@@ -32,7 +32,10 @@ const String kMyeSim ='My eSims';
 const String kProfile ='Profile';
 const String kGlobalESims ='Global eSims';
 const String kLocalESim ='Local eSim';
+const String kCurrentSimEZ ='Current Sim-EZ';
+const String kArchivedSimEZ ='Archived Sim-EZ';
 const String kPopularCountries ='Popular Countries';
+const String kFindOutHow='Find out how';
 const String kData ='Data';
 const String kPrice ='Price';
 const String kChange ='Change';
@@ -59,6 +62,7 @@ const String kStepFirstText ='Step 1/2 - Create a Password';
 const String kStepFirstSubText ='You can change your email after creating a new password.';
 const String kStepSecondText ='Step 2/2 -Change Email Address';
 const String kStepSecondSubText ='You can change your email WITH new password you created.';
+const String kWarningTextOne ='WARNNIG ! Most  SIM-EZ can only be installed once. if you remove the SIM-EZ from your device, you can not install it again!';
 
 const String kOrLoginWith   = 'or Login with ';
 const String kMyESimSearchText   = 'search data pack for 200+ countries';
@@ -73,6 +77,17 @@ const String kContactUs = 'Contact us';
 const String kMoreInfo = 'More info';
 const String kRateApp = 'Rate App';
 const String kLogOut = 'Log Out';
+
+/// myEsim tab strings
+const String kICCIDNUMBER ='ICCID NUMBER';
+const String kSimEzInstallation ='sim-ez installation';
+const String kAccessData ='Install SIM-EZ / Access Data';
+const String kDataUsage ='Data Usage';
+const String kUsedData ='Used data';
+const String kTotalData ='Total data';
+const String kMyPackages ='My Packages';
+const String kNotActivated ='Not activated';
+const String kBuyTopUpPackages ='Buy top up packages';
 
 class AppConstants {
   String currentRoute = '';

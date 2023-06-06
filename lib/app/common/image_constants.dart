@@ -8,6 +8,7 @@ const kImgSplashScreenBG = '$_imgPath/splash_screen_bg.svg';
 
 /// empty or show error images
 const kImgErrorDeviceCompatibility = '$_imgPath/device_compatibility_error_img.svg';
+const kImgEmptyMyESim = '$_imgPath/empty_my_esim_img.svg';
 
 
 const kImgTempFlag = '$_imgPath/temp_flag_img.svg';
@@ -31,3 +32,6 @@ const kIconActivity = '$_iconPath/activity_icon.svg';
 const kIconStore = '$_iconPath/store_icon.svg';
 const kIconBottomBarSim = '$_iconPath/bottom_bar_sim_icon.svg';
 const kIconBottomBarProfile = '$_iconPath/bottom_bar_profile_icon.svg';
+const kIconCopy = '$_iconPath/copy_icon.svg';
+const kIconDownload = '$_iconPath/download_icon.svg';
+const kIconMore = '$_iconPath/more_icon.svg';

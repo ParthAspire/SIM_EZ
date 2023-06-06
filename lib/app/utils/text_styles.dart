@@ -9,6 +9,7 @@ class TextStyles {
   static const double k14FontSize = 14;
   static const double k16FontSize = 16;
   static const double k20FontSize = 20;
+  static const double k34FontSize = 34;
 
   static const k6ColorWhiteBold400 = TextStyle(
     fontSize: k6FontSize,
@@ -52,6 +53,12 @@ class TextStyles {
     color: kColor1ADDD0,
     fontWeight: FontWeight.w400,
     fontFamily: fontFamilyAudiowide,
+  );
+  static const k10Color1ADDD0Bold400Arial = TextStyle(
+    fontSize: k10FontSize,
+    color: kColor1ADDD0,
+    fontWeight: FontWeight.w400,
+    fontFamily: fontFamilyArial,
   );
 
   static const k12kColorWhiteBold700Arial = TextStyle(
@@ -225,6 +232,13 @@ class TextStyles {
     fontSize: k20FontSize,
     color: kColorWhite,
     fontWeight: FontWeight.w400,
+    fontFamily: fontFamilyArial,
+  );
+
+  static const k34ColorWhiteBold700Arial = TextStyle(
+    fontSize: k34FontSize,
+    color: kColorWhite,
+    fontWeight: FontWeight.w700,
     fontFamily: fontFamilyArial,
   );
 }
