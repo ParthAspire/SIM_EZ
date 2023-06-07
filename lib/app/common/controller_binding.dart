@@ -11,6 +11,11 @@ import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/change_
 import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/create_password/controller/create_password_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/base/controller/profile_base_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/contact_us/controller/contact_us_controller.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/profile/more_info/about_sim_ez/controller/about_sim_ez_controller.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/profile/more_info/base/controller/more_info_controller.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/profile/more_info/privacy_policy/controller/privacy_policy_controller.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/profile/more_info/terms_and_condition/controller/terms_and_condition_controller.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/profile/orders/base/controller/orders_base_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/stores/base/controller/store_base_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/stores/selected_country_sims/additional_info/base/controller/additional_info_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/stores/selected_country_sims/base/controller/selected_country_sims_controller.dart';
@@ -86,6 +91,26 @@ class ControllerBinding extends Bindings {
     );
     Get.lazyPut<PurchasedSimInfoController>(
       () => PurchasedSimInfoController(),
+      fenix: true,
+    );
+    Get.lazyPut<MoreInfoController>(
+      () => MoreInfoController(),
+      fenix: true,
+    );
+    Get.lazyPut<AboutSimEzController>(
+      () => AboutSimEzController(),
+      fenix: true,
+    );
+    Get.lazyPut<PrivacyPolicyController>(
+      () => PrivacyPolicyController(),
+      fenix: true,
+    );
+    Get.lazyPut<TermsAndConditionController>(
+      () => TermsAndConditionController(),
+      fenix: true,
+    );
+    Get.lazyPut<OrdersBaseController>(
+      () => OrdersBaseController(),
       fenix: true,
     );
   }

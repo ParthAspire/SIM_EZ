@@ -35,3 +35,6 @@ const kIconBottomBarProfile = '$_iconPath/bottom_bar_profile_icon.svg';
 const kIconCopy = '$_iconPath/copy_icon.svg';
 const kIconDownload = '$_iconPath/download_icon.svg';
 const kIconMore = '$_iconPath/more_icon.svg';
+const kIconEdit = '$_iconPath/edit_icon.svg';
+const kIconArchive = '$_iconPath/archive_icon.svg';
+const kIconDelete = '$_iconPath/delete_icon.svg';

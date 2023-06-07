@@ -77,6 +77,8 @@ const String kContactUs = 'Contact us';
 const String kMoreInfo = 'More info';
 const String kRateApp = 'Rate App';
 const String kLogOut = 'Log Out';
+const String kCancel = 'Cancel';
+const String kLogOutText = 'Are you sure want to logout?';
 
 /// myEsim tab strings
 const String kICCIDNUMBER ='ICCID NUMBER';
@@ -88,6 +90,14 @@ const String kTotalData ='Total data';
 const String kMyPackages ='My Packages';
 const String kNotActivated ='Not activated';
 const String kBuyTopUpPackages ='Buy top up packages';
+const String kRemainningData ='Remainning Data';
+const String kTopUp ='Top Up';
+const String kDetails ='Details';
+
+/// more info
+const String kAboutSIMEZ='About SIM-EZ';
+const String kPrivacyPolicy='Privacy Policy';
+const String kTermsCondition ='Terms & Condition';
 
 class AppConstants {
   String currentRoute = '';

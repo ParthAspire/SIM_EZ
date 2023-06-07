@@ -20,3 +20,4 @@ const kColorF8F8F8 = Color(0xFFF8F8F8);
 const kColorB0B0B0 = Color(0xFFB0B0B0);
 const kColorEBEBEB = Color(0xFFEBEBEB);
 const kColorE2E2E2 = Color(0xFFE2E2E2);
+const kColor989898 = Color(0xFF989898);

@@ -4,10 +4,12 @@ import 'package:sim_ez/app/common/color_constants.dart';
 
 class TextStyles {
   static const double k6FontSize = 6;
+  static const double k8FontSize = 8;
   static const double k10FontSize = 10;
   static const double k12FontSize = 12;
   static const double k14FontSize = 14;
   static const double k16FontSize = 16;
+  static const double k18FontSize = 18;
   static const double k20FontSize = 20;
   static const double k34FontSize = 34;
 
@@ -22,6 +24,13 @@ class TextStyles {
     color: kColorWhite,
     fontWeight: FontWeight.w400,
     fontFamily: fontFamilyArial,
+  );
+
+  static const k8ColorWhiteBold400 = TextStyle(
+    fontSize: k8FontSize,
+    color: kColorWhite,
+    fontWeight: FontWeight.w400,
+    fontFamily: fontFamilyAudiowide,
   );
 
   static const k10ColorRedBold400 = TextStyle(
@@ -45,6 +54,12 @@ class TextStyles {
   static const k10ColorWhiteBold400Arial = TextStyle(
     fontSize: k10FontSize,
     color: kColorWhite,
+    fontWeight: FontWeight.w400,
+    fontFamily: fontFamilyArial,
+  );
+  static const k10Color989898Bold400Arial = TextStyle(
+    fontSize: k10FontSize,
+    color: kColor989898,
     fontWeight: FontWeight.w400,
     fontFamily: fontFamilyArial,
   );
@@ -205,6 +220,19 @@ class TextStyles {
   );
   static const k16kColorBlackBold400Arial = TextStyle(
     fontSize: k16FontSize,
+    color: kColorBlack,
+    fontWeight: FontWeight.w400,
+    fontFamily: fontFamilyArial,
+  );
+
+  static const k18kColorWhiteBold400 = TextStyle(
+    fontSize: k18FontSize,
+    color: kColorWhite,
+    fontWeight: FontWeight.w400,
+    fontFamily: fontFamilyAudiowide,
+  );
+  static const k18kColorBlackBold400 = TextStyle(
+    fontSize: k18FontSize,
     color: kColorBlack,
     fontWeight: FontWeight.w400,
     fontFamily: fontFamilyArial,

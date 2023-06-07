@@ -9,4 +9,12 @@ class ProfileBaseController extends GetxController {
   void navigateToContactUsScreen() {
     Get.toNamed(kRouteContactUsScreen);
   }
+
+  void navigateToMoreInfoScreen() {
+    Get.toNamed(kRouteMoreInfoScreen);
+  }
+
+  void navigateToOrdersScreen() {
+    Get.toNamed(kRouteOrdersBaseScreen);
+  }
 }

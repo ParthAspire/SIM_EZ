@@ -19,14 +19,15 @@ class _SplashScreenState extends State<SplashScreen> {
   bool isLoggedIn = false;
 
   Future<void> checkUserIsLoggedIn() async {
-    isLoggedIn = await localStorage.getBoolFromStorage(kStorageIsLoggedIn);
+    // isLoggedIn = await localStorage.getBoolFromStorage(kStorageIsLoggedIn);
 
-    if (isLoggedIn) {
+    // if (isLoggedIn) {
       // navigate to dashboard screen
-    } else {
-      Get.offAllNamed(kRouteMainAuthScreen);
+    Get.offAllNamed(kRouteBottomNavScreen);
+    // } else {
+    //   Get.offAllNamed(kRouteMainAuthScreen);
       // navigate to login screen
-    }
+    // }
   }
 
   @override

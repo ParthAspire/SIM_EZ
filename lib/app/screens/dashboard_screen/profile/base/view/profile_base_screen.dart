@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:sim_ez/app/Widgets/common_dialog.dart';
 import 'package:sim_ez/app/common/app_constants.dart';
 import 'package:sim_ez/app/common/color_constants.dart';
 import 'package:sim_ez/app/common/image_constants.dart';
@@ -50,24 +51,31 @@ class ProfileBaseScreen extends GetView<ProfileBaseController> {
                       ),
                     ),
                   ),
+                  // Container(height: 0.3, color: kColorD9D9D9),
+                  // ListTile(
+                  //   title: const Text(kSavedCards,
+                  //       style: TextStyles.k16kColorBlackBold400Arial),
+                  //   trailing: InkWell(
+                  //     onTap: () {},
+                  //     child: const Icon(Icons.navigate_next_outlined,
+                  //         size: 24, color: kColorBlack),
+                  //   ),
+                  // ),
                   Container(height: 0.3, color: kColorD9D9D9),
-                  ListTile(
-                    title: const Text(kSavedCards,
-                        style: TextStyles.k16kColorBlackBold400Arial),
-                    trailing: InkWell(
-                      onTap: () {},
-                      child: const Icon(Icons.navigate_next_outlined,
-                          size: 24, color: kColorBlack),
-                    ),
-                  ),
-                  Container(height: 0.3, color: kColorD9D9D9),
-                  ListTile(
-                    title: const Text(kOrders,
-                        style: TextStyles.k16kColorBlackBold400Arial),
-                    trailing: InkWell(
-                      onTap: () {},
-                      child: const Icon(Icons.navigate_next_outlined,
-                          size: 24, color: kColorBlack),
+                  InkWell(
+                    onTap:  () {
+                      controller.navigateToOrdersScreen();
+                    },
+                    child: ListTile(
+                      title: const Text(kOrders,
+                          style: TextStyles.k16kColorBlackBold400Arial),
+                      trailing: InkWell(
+                        onTap: () {
+                          controller.navigateToOrdersScreen();
+                        },
+                        child: const Icon(Icons.navigate_next_outlined,
+                            size: 24, color: kColorBlack),
+                      ),
                     ),
                   ),
                 ],
@@ -101,20 +109,29 @@ class ProfileBaseScreen extends GetView<ProfileBaseController> {
                       title: const Text(kContactUs,
                           style: TextStyles.k16kColorBlackBold400Arial),
                       trailing: InkWell(
-                        onTap: () { controller.navigateToContactUsScreen();},
+                        onTap: () {
+                          controller.navigateToContactUsScreen();
+                        },
                         child: const Icon(Icons.navigate_next_outlined,
                             size: 24, color: kColorBlack),
                       ),
                     ),
                   ),
                   Container(height: 0.3, color: kColorD9D9D9),
-                  ListTile(
-                    title: const Text(kMoreInfo,
-                        style: TextStyles.k16kColorBlackBold400Arial),
-                    trailing: InkWell(
-                      onTap: () {},
-                      child: const Icon(Icons.navigate_next_outlined,
-                          size: 24, color: kColorBlack),
+                  InkWell(
+                    onTap: () {
+                      controller.navigateToMoreInfoScreen();
+                    },
+                    child: ListTile(
+                      title: const Text(kMoreInfo,
+                          style: TextStyles.k16kColorBlackBold400Arial),
+                      trailing: InkWell(
+                        onTap: () {
+                          controller.navigateToMoreInfoScreen();
+                        },
+                        child: const Icon(Icons.navigate_next_outlined,
+                            size: 24, color: kColorBlack),
+                      ),
                     ),
                   ),
                 ],
@@ -140,13 +157,20 @@ class ProfileBaseScreen extends GetView<ProfileBaseController> {
                     ),
                   ),
                   Container(height: 0.3, color: kColorD9D9D9),
-                  ListTile(
-                    title: const Text(kLogOut,
-                        style: TextStyles.k16kColorBlackBold400Arial),
-                    trailing: InkWell(
-                      onTap: () {},
-                      child: const Icon(Icons.navigate_next_outlined,
-                          size: 24, color: kColorBlack),
+                  InkWell(
+                    onTap: () {
+                      showLogoutDialog();
+                    },
+                    child: ListTile(
+                      title: const Text(kLogOut,
+                          style: TextStyles.k16kColorBlackBold400Arial),
+                      trailing: InkWell(
+                        onTap: () {
+                          showLogoutDialog();
+                        },
+                        child: const Icon(Icons.navigate_next_outlined,
+                            size: 24, color: kColorBlack),
+                      ),
                     ),
                   ),
                 ],
@@ -165,6 +189,26 @@ class ProfileBaseScreen extends GetView<ProfileBaseController> {
       automaticallyImplyLeading: false,
       title: const Text(kProfile, style: TextStyles.k20ColorBlackBold400),
       centerTitle: true,
+    );
+  }
+
+  showLogoutDialog() {
+    return showDialog(
+      barrierDismissible: false,
+      context: Get.overlayContext!,
+      builder: (context) {
+        return commonDialog(
+          title: kLogOutText,
+          submitText: kLogOut.toUpperCase(),
+          cancelText: kCancel.toUpperCase(),
+          onSubmit: () {
+            Get.back();
+          },
+          onCancel: () {
+            Get.back();
+          },
+        );
+      },
     );
   }
 }
