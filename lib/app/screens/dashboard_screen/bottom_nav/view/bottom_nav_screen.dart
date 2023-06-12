@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sim_ez/app/common/app_constants.dart';
@@ -14,9 +15,15 @@ class BottomNavScreen extends GetView<BottomNavController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: <Widget>[_stackedContainers(), _navigationButtons()],
+    return WillPopScope(
+      onWillPop: () async{
+        SystemNavigator.pop();
+        return false;
+      },
+      child: Scaffold(
+        body: Column(
+          children: <Widget>[_stackedContainers(), _navigationButtons()],
+        ),
       ),
     );
   }

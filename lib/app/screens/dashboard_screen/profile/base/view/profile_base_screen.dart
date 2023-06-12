@@ -5,6 +5,7 @@ import 'package:sim_ez/app/Widgets/common_dialog.dart';
 import 'package:sim_ez/app/common/app_constants.dart';
 import 'package:sim_ez/app/common/color_constants.dart';
 import 'package:sim_ez/app/common/image_constants.dart';
+import 'package:sim_ez/app/common/local_storage_constants.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/base/controller/profile_base_controller.dart';
 import 'package:sim_ez/app/utils/text_styles.dart';
 
@@ -19,68 +20,74 @@ class ProfileBaseScreen extends GetView<ProfileBaseController> {
         padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 24),
         child: Column(
           children: [
+
             /// user name
             Row(
               children: [
                 SvgPicture.asset(kIconDefaultUser),
                 SizedBox(width: 8),
-                const Text('$kHello, UserName',
+                Text('$kHello, ${controller.userName.value}',
                     style: TextStyles.k20ColorBlackBold400),
               ],
             ),
 
             /// first card
-            Card(
-              elevation: 6,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)),
-              color: kColorF8F8F8,
-              margin: EdgeInsets.only(top: 14),
-              child: Column(
-                children: [
-                  InkWell(
-                    onTap: () {
-                      controller.navigateToAccountInfoScreen();
-                    },
-                    child: ListTile(
-                      title: const Text(kAccountInformation,
-                          style: TextStyles.k16kColorBlackBold400Arial),
-                      trailing: InkWell(
-                        child: const Icon(Icons.navigate_next_outlined,
-                            size: 24, color: kColorBlack),
+            Obx(() {
+              return Visibility(
+                visible: controller.isLoggedIn.value,
+                child: Card(
+                  elevation: 6,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)),
+                  color: kColorF8F8F8,
+                  margin: EdgeInsets.only(top: 14),
+                  child: Column(
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          controller.navigateToAccountInfoScreen();
+                        },
+                        child: ListTile(
+                          title: const Text(kAccountInformation,
+                              style: TextStyles.k16kColorBlackBold400Arial),
+                          trailing: InkWell(
+                            child: const Icon(Icons.navigate_next_outlined,
+                                size: 24, color: kColorBlack),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  // Container(height: 0.3, color: kColorD9D9D9),
-                  // ListTile(
-                  //   title: const Text(kSavedCards,
-                  //       style: TextStyles.k16kColorBlackBold400Arial),
-                  //   trailing: InkWell(
-                  //     onTap: () {},
-                  //     child: const Icon(Icons.navigate_next_outlined,
-                  //         size: 24, color: kColorBlack),
-                  //   ),
-                  // ),
-                  Container(height: 0.3, color: kColorD9D9D9),
-                  InkWell(
-                    onTap:  () {
-                      controller.navigateToOrdersScreen();
-                    },
-                    child: ListTile(
-                      title: const Text(kOrders,
-                          style: TextStyles.k16kColorBlackBold400Arial),
-                      trailing: InkWell(
+                      // Container(height: 0.3, color: kColorD9D9D9),
+                      // ListTile(
+                      //   title: const Text(kSavedCards,
+                      //       style: TextStyles.k16kColorBlackBold400Arial),
+                      //   trailing: InkWell(
+                      //     onTap: () {},
+                      //     child: const Icon(Icons.navigate_next_outlined,
+                      //         size: 24, color: kColorBlack),
+                      //   ),
+                      // ),
+                      Container(height: 0.3, color: kColorD9D9D9),
+                      InkWell(
                         onTap: () {
                           controller.navigateToOrdersScreen();
                         },
-                        child: const Icon(Icons.navigate_next_outlined,
-                            size: 24, color: kColorBlack),
+                        child: ListTile(
+                          title: const Text(kOrders,
+                              style: TextStyles.k16kColorBlackBold400Arial),
+                          trailing: InkWell(
+                            onTap: () {
+                              controller.navigateToOrdersScreen();
+                            },
+                            child: const Icon(Icons.navigate_next_outlined,
+                                size: 24, color: kColorBlack),
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
-                ],
-              ),
-            ),
+                ),
+              );
+            }),
 
             /// second card
             Card(
@@ -157,22 +164,31 @@ class ProfileBaseScreen extends GetView<ProfileBaseController> {
                     ),
                   ),
                   Container(height: 0.3, color: kColorD9D9D9),
-                  InkWell(
-                    onTap: () {
-                      showLogoutDialog();
-                    },
-                    child: ListTile(
-                      title: const Text(kLogOut,
-                          style: TextStyles.k16kColorBlackBold400Arial),
-                      trailing: InkWell(
-                        onTap: () {
+                  Obx(() {
+                    return InkWell(
+                      onTap: () {
+                        if (controller.isLoggedIn.value == false) {
+                          controller.navigateToLoginScreen();
+                        } else {
                           showLogoutDialog();
-                        },
-                        child: const Icon(Icons.navigate_next_outlined,
-                            size: 24, color: kColorBlack),
+                        }
+                      },
+                      child: ListTile(
+                        title: Text(
+                            controller.isLoggedIn.value == false
+                                ? kLogIn
+                                : kLogOut,
+                            style: TextStyles.k16kColorBlackBold400Arial),
+                        trailing: InkWell(
+                          onTap: () {
+                            showLogoutDialog();
+                          },
+                          child: const Icon(Icons.navigate_next_outlined,
+                              size: 24, color: kColorBlack),
+                        ),
                       ),
-                    ),
-                  ),
+                    );
+                  }),
                 ],
               ),
             ),
@@ -202,7 +218,7 @@ class ProfileBaseScreen extends GetView<ProfileBaseController> {
           submitText: kLogOut.toUpperCase(),
           cancelText: kCancel.toUpperCase(),
           onSubmit: () {
-            Get.back();
+            controller.logOutAndClearStorage();
           },
           onCancel: () {
             Get.back();

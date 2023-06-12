@@ -5,6 +5,8 @@ import 'package:sim_ez/app/utils/logger_utils.dart';
 class LocalStorage extends GetxController {
   late final FlutterSecureStorage _mEncryptedStorage;
 
+  RxBool isLoggedIn = false.obs;
+
   @override
   void onInit() {
     super.onInit();

@@ -20,12 +20,20 @@ class MyESimBaseScreen extends GetView<MyESimBaseController> {
           return Column(
             children: [
               appLogo(),
-              currentAndArchivedSimTabBar(),
-              controller.currentIndex.value == 0
-                  ? currentSimListing()
-                  : archivedSimListing(),
               Visibility(
-                visible: false,
+                  visible: controller.isLoggedIn.value,
+                  child: Expanded(
+                    child: Column(
+                      children: [
+                        currentAndArchivedSimTabBar(),
+                        controller.currentIndex.value == 0
+                            ? currentSimListing()
+                            : archivedSimListing(),
+                      ],
+                    ),
+                  )),
+              Visibility(
+                visible: controller.isLoggedIn.value == false,
                 child: Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(top: 38),
@@ -51,9 +59,15 @@ class MyESimBaseScreen extends GetView<MyESimBaseController> {
                               horizontal: 36, vertical: 10),
                           child: primaryButton(
                               onPress: () {
-                                controller.navigateToPurchasedSimInfoScreen();
+                                if (controller.isLoggedIn.value == false) {
+                                  controller.navigateToLoginScreen();
+                                } else {
+                                  controller.navigateToPurchasedSimInfoScreen();
+                                }
                               },
-                              buttonTxt: kFindOutHow.toUpperCase(),
+                              buttonTxt: controller.isLoggedIn.value == false
+                                  ? kLogIn.toUpperCase()
+                                  : kFindOutHow.toUpperCase(),
                               height: 38),
                         ),
                       ],

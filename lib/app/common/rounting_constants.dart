@@ -17,3 +17,4 @@ const kRouteAboutSimEzScreen = '/AboutSimEzScreen';
 const kRoutePrivacyPolicyScreen = '/PrivacyPolicyScreen';
 const kRouteTermsAndConditionScreen = '/TermsAndConditionScreen';
 const kRouteOrdersBaseScreen = '/OrdersBaseScreen';
+const kRouteInstallationScreen = '/InstallationScreen';

@@ -25,7 +25,7 @@ class PurchasedSimInfoScreen extends GetView<PurchasedSimInfoController> {
               /// sim info container
               Container(
                 margin: EdgeInsets.only(top: 16),
-                padding: EdgeInsets.symmetric(horizontal: 10),
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
                 decoration: BoxDecoration(
                     color: kColor1ADDD0,
                     borderRadius: BorderRadius.circular(8)),
@@ -38,31 +38,12 @@ class PurchasedSimInfoScreen extends GetView<PurchasedSimInfoController> {
                             style: TextStyles.k20ColorWhiteBold400),
 
                         /// pop-up menu
-                        SizedBox(
-                          width: 25,
-                          child: PopupMenuButton(
-                            color: kColorWhite,
-                            onSelected: (value) {
-                              // your logic
-                            },
-                            itemBuilder: (BuildContext bc) {
-                              return const [
-                                PopupMenuItem(
-                                  child: Text("Info 1"),
-                                  value: '/hello',
-                                ),
-                                PopupMenuItem(
-                                  child: Text("Info 2"),
-                                  value: '/about',
-                                ),
-                                PopupMenuItem(
-                                  child: Text("Info 3"),
-                                  value: '/contact',
-                                )
-                              ];
-                            },
-                          ),
-                        )
+                        GestureDetector(
+                          onTap: () {
+                            openBottomModalSheet();
+                          },
+                          child: SvgPicture.asset(kIconPopUpMenu),
+                        ),
                       ],
                     ),
                     Row(
@@ -130,7 +111,7 @@ class PurchasedSimInfoScreen extends GetView<PurchasedSimInfoController> {
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 14, bottom: 24),
+                      padding: const EdgeInsets.only(top: 14, bottom: 12),
                       child: primaryButton(
                           onPress: () {},
                           buttonTxt: kShowMore.toUpperCase(),
@@ -169,23 +150,28 @@ class PurchasedSimInfoScreen extends GetView<PurchasedSimInfoController> {
                   children: [
                     Text(kSimEzInstallation.toUpperCase(),
                         style: TextStyles.k20ColorBlackBold400),
-                    Card(
-                      shadowColor: kColorEBEBEB,
-                      elevation: 2,
-                      margin: EdgeInsets.only(top: 20),
-                      child: ListTile(
-                        contentPadding: EdgeInsets.zero,
-                        minLeadingWidth: 10,
-                        leading: Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: SvgPicture.asset(kIconDownload),
-                        ),
-                        title: Text(kAccessData,
-                            style: TextStyles.k14ColorBlackBold400Arial),
-                        trailing: Icon(
-                          Icons.navigate_next_outlined,
-                          size: 30,
-                          color: kColor1ADDD0,
+                    InkWell(
+                      onTap: () {
+                        controller.navigateToInstallationScreen();
+                      },
+                      child: Card(
+                        shadowColor: kColorEBEBEB,
+                        elevation: 2,
+                        margin: EdgeInsets.only(top: 20),
+                        child: ListTile(
+                          contentPadding: EdgeInsets.zero,
+                          minLeadingWidth: 10,
+                          leading: Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: SvgPicture.asset(kIconDownload),
+                          ),
+                          title: Text(kAccessData,
+                              style: TextStyles.k14ColorBlackBold400Arial),
+                          trailing: Icon(
+                            Icons.navigate_next_outlined,
+                            size: 30,
+                            color: kColor1ADDD0,
+                          ),
                         ),
                       ),
                     ),
@@ -389,6 +375,105 @@ class PurchasedSimInfoScreen extends GetView<PurchasedSimInfoController> {
               color: kColorBlack, size: 30)),
       title: const Text('India', style: TextStyles.k20ColorBlackBold400),
       centerTitle: true,
+    );
+  }
+
+  openBottomModalSheet() {
+    return Get.bottomSheet(
+      isDismissible: false,
+      Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            height: 80,
+            padding: EdgeInsets.only(
+              right: 10,
+              top: 10,
+            ),
+            decoration: BoxDecoration(
+              color:
+              kColor1ADDD0,
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(8), topRight: Radius.circular(8)),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: EdgeInsets.only(right: 10),
+                  width: Get.width * 0.75,
+                  child: Text(
+                    kBottomModalTextOne,
+                    style: TextStyles.k16kColorWhiteBold700Arial,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Get.back();
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 16),
+                    child: Icon(
+                      Icons.close,
+                      color: kColorBlack,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            color: kColorWhite,
+            child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+              shadowColor: kColorF6F6F6,
+              color: kColorWhite,
+              elevation: 4,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 16, left: 10, right: 10, bottom: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(kRename.toUpperCase(),
+                            style: TextStyles.k12kColorBlackBold400Arial),
+                        SvgPicture.asset(kIconEdit, height: 22, width: 22),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(kArchive.toUpperCase(),
+                            style: TextStyles.k12kColorBlackBold400Arial),
+                        SvgPicture.asset(kIconArchive, height: 22, width: 22),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 10, left: 10, right: 10, bottom: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(kDeleteFromAccount.toUpperCase(),
+                            style: TextStyles.k12kColorRedFF6161Bold400Arial),
+                        SvgPicture.asset(kIconDelete, height: 24, width: 24),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

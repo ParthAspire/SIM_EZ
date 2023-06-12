@@ -4,6 +4,7 @@ import 'package:sim_ez/app/screens/authentication/login/controller/login_control
 import 'package:sim_ez/app/screens/authentication/sign_up/controller/sign_up_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/bottom_nav/controller/bottom_nav_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/my_esims/base/controller/my_esim_base_controller.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/my_esims/installation/controller/installation_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/my_esims/purchased_sim_info/controller/purchased_sim_info_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/base/controller/account_info_base_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/change_email/controller/change_email_controller.dart';
@@ -111,6 +112,10 @@ class ControllerBinding extends Bindings {
     );
     Get.lazyPut<OrdersBaseController>(
       () => OrdersBaseController(),
+      fenix: true,
+    );
+    Get.lazyPut<InstallationController>(
+      () => InstallationController(),
       fenix: true,
     );
   }

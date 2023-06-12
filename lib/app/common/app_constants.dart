@@ -43,6 +43,8 @@ const String kCreate ='Create';
 const String kValidity ='Validity';
 const String kCoverage ='Coverage';
 const String kNetwork ='NETWORK';
+const String kAPN ='APN';
+const String kTheAPNIsSetAutomatically ='The APN is set automatically';
 const String kSend ='Send';
 const String kPlanType ='Plan type';
 const String kActivationPolicy ='Activation policy';
@@ -77,12 +79,13 @@ const String kContactUs = 'Contact us';
 const String kMoreInfo = 'More info';
 const String kRateApp = 'Rate App';
 const String kLogOut = 'Log Out';
+const String kLogIn = 'Log In';
 const String kCancel = 'Cancel';
 const String kLogOutText = 'Are you sure want to logout?';
 
 /// myEsim tab strings
 const String kICCIDNUMBER ='ICCID NUMBER';
-const String kSimEzInstallation ='sim-ez installation';
+const String kSimEzInstallation ='SIM-EZ installation';
 const String kAccessData ='Install SIM-EZ / Access Data';
 const String kDataUsage ='Data Usage';
 const String kUsedData ='Used data';
@@ -98,6 +101,25 @@ const String kDetails ='Details';
 const String kAboutSIMEZ='About SIM-EZ';
 const String kPrivacyPolicy='Privacy Policy';
 const String kTermsCondition ='Terms & Condition';
+
+/// sim details
+const String kBottomModalTextOne= 'What would you like to do with your esim-EZ';
+const String kRename = 'Rename';
+const String kArchive = 'Archive';
+const String kDeleteFromAccount = 'Delete from Account';
+
+/// sim-ez installation
+const String kDirect = 'Direct';
+const String kQRCode = 'QR Code';
+const String kManual = 'Manual';
+const String kYourSimEZHasBeen = 'Your Sim - EZ has been';
+const String kSuccessfullyInstalled = 'Successfully installed';
+const String kInstallationStepOneText = 'Step 1/2 - install Sim-ez';
+const String kShareQrCode = 'Share qr code';
+const String kShowHowToAccessData = 'show how to access data';
+const String kSMDPADDRESS = 'SM-DP+ADDRESS';
+const String kACTIVATIONCODE = 'ACTIVATION CODE';
+
 
 class AppConstants {
   String currentRoute = '';

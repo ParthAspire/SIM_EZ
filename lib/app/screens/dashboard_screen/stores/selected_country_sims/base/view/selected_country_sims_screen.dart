@@ -19,7 +19,10 @@ class SelectedCountrySimsScreen extends GetView<SelectedCountrySimsController> {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              controller.navigateToSimInfoScreen();
+              if(controller.isLoggedIn.value==false){
+                controller.navigateToLoginScreen();
+              }else{
+              controller.navigateToSimInfoScreen();}
             },
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 26, vertical: 10),
