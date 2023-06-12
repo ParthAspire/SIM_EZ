@@ -17,6 +17,7 @@ import 'package:sim_ez/app/screens/dashboard_screen/profile/more_info/base/contr
 import 'package:sim_ez/app/screens/dashboard_screen/profile/more_info/privacy_policy/controller/privacy_policy_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/more_info/terms_and_condition/controller/terms_and_condition_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/orders/base/controller/orders_base_controller.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/profile/orders/order_details/controller/order_details_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/stores/base/controller/store_base_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/stores/selected_country_sims/additional_info/base/controller/additional_info_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/stores/selected_country_sims/base/controller/selected_country_sims_controller.dart';
@@ -116,6 +117,10 @@ class ControllerBinding extends Bindings {
     );
     Get.lazyPut<InstallationController>(
       () => InstallationController(),
+      fenix: true,
+    );
+    Get.lazyPut<OrderDetailsController>(
+      () => OrderDetailsController(),
       fenix: true,
     );
   }

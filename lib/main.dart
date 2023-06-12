@@ -18,6 +18,7 @@ import 'package:sim_ez/app/screens/dashboard_screen/profile/more_info/base/view/
 import 'package:sim_ez/app/screens/dashboard_screen/profile/more_info/privacy_policy/view/privacy_policy_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/more_info/terms_and_condition/view/terms_and_condition_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/orders/base/view/orders_base_screen.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/profile/orders/order_details/view/order_details_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/stores/selected_country_sims/additional_info/base/view/additional_info_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/stores/selected_country_sims/base/view/selected_country_sims_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/stores/selected_country_sims/device_compatibility/view/device_compatibility_screen.dart';
@@ -120,6 +121,10 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: kRouteInstallationScreen,
           page: () => InstallationScreen(),
+        ),
+        GetPage(
+          name: kRouteOrderDetailsScreen,
+          page: () => OrderDetailsScreen(),
         ),
       ],
     );

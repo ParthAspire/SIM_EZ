@@ -41,3 +41,4 @@ const kIconDelete = '$_iconPath/delete_icon.svg';
 const kIconPopUpMenu = '$_iconPath/pop_up_menu_icon.svg';
 const kIconCorrect = '$_iconPath/correct_icon.svg';
 const kIconQrCode = '$_iconPath/qr_code_icon.svg';
+const kIconVisa = '$_iconPath/visa_icon.svg';

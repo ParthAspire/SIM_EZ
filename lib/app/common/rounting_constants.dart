@@ -18,3 +18,4 @@ const kRoutePrivacyPolicyScreen = '/PrivacyPolicyScreen';
 const kRouteTermsAndConditionScreen = '/TermsAndConditionScreen';
 const kRouteOrdersBaseScreen = '/OrdersBaseScreen';
 const kRouteInstallationScreen = '/InstallationScreen';
+const kRouteOrderDetailsScreen = '/OrderDetailsScreen';

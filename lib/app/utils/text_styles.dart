@@ -242,6 +242,12 @@ class TextStyles {
     fontWeight: FontWeight.w700,
     fontFamily: fontFamilyArial,
   );
+  static const k16kColorRedBold400Arial = TextStyle(
+    fontSize: k16FontSize,
+    color: kColorRed,
+    fontWeight: FontWeight.w400,
+    fontFamily: fontFamilyArial,
+  );
 
   static const k18kColorWhiteBold400 = TextStyle(
     fontSize: k18FontSize,
