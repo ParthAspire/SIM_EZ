@@ -22,6 +22,8 @@ const String kSIMEZICCID = 'SIM-EZ ICCID (optinal)';
 const String kSubject = 'Subject';
 const String kMessage = 'Message';
 const String kDeleteAccount = 'Delete Account';
+const String kEnterCode = 'Enter Code';
+const String kVerifyOTP = 'Verify OTP';
 
 const String kHintEnterYourName = 'Enter your name';
 const String kHintEnterYourEmail = 'Enter your email';
@@ -140,6 +142,19 @@ const String kTOTALPRICE = 'TOTAL PRICE';
 const String kREFERRALREWARD = 'REFERRAL REWARD';
 const String kFINALPRICE  = 'FINAL PRICE ';
 const String kDeleteOrderDetails  = 'Delete Order Details';
+
+
+// error strings
+const kEmptyName = 'Please enter user-name';
+const kEmptyEmail = 'Please enter emailId';
+const kEmptyPassword = 'Please enter password';
+const kEmptyConfirmPassword = 'Please enter confirm password';
+const kEmptyOtp = 'Please enter OTP';
+
+const kValidEmail = 'enter valid emailId';
+const kValidPassword = 'enter valid password';
+const kValidConfirmPassword = 'confirm password doesn\'t match';
+const kValidOtp = 'please enter 4 digit OTP';
 
 class AppConstants {
   String currentRoute = '';

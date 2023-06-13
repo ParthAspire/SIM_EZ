@@ -5,6 +5,7 @@ import 'package:sim_ez/app/common/controller_binding.dart';
 import 'package:sim_ez/app/common/rounting_constants.dart';
 import 'package:sim_ez/app/screens/authentication/base/view/main_auth_screen.dart';
 import 'package:sim_ez/app/screens/authentication/login/view/login_screen.dart';
+import 'package:sim_ez/app/screens/authentication/otp/view/otp_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/bottom_nav/view/bottom_nav_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/my_esims/installation/view/installation_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/my_esims/purchased_sim_info/view/purchased_sim_info_screen.dart';
@@ -35,98 +36,107 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: appName,
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue),
-      initialBinding: ControllerBinding(),
-      routingCallback: (value) {
-        AppConstants().currentRoute = value?.current ?? '';
-        debugPrint(' ############# routing callback : ${value?.current}');
-      },
-      home: const SplashScreen(),
-      getPages: [
-        GetPage(
-          name: kRouteMainAuthScreen,
-          page: () => MainAuthScreen(),
-        ),
-        GetPage(
-          name: kRouteLoginScreen,
-          page: () => LoginScreen(),
-        ),
-        GetPage(
-          name: kRouteBottomNavScreen,
-          page: () => BottomNavScreen(),
-        ),
-        GetPage(
-          name: kRouteSelectedCountrySimsScreen,
-          page: () => SelectedCountrySimsScreen(),
-        ),
-        GetPage(
-          name: kRouteSimInfoScreen,
-          page: () => SimInfoScreen(),
-        ),
-        GetPage(
-          name: kRouteDeviceCompatibilityScreen,
-          page: () => DeviceCompatibilityScreen(),
-        ),
-        GetPage(
-          name: kRouteAdditionalInfoScreen,
-          page: () => AdditionalInfoScreen(),
-        ),
-        GetPage(
-          name: kRouteAccountInfoBaseScreen,
-          page: () => AccountInfoBaseScreen(),
-        ),
-        GetPage(
-          name: kRouteChangePasswordScreen,
-          page: () => ChangePasswordScreen(),
-        ),
-        GetPage(
-          name: kRouteChangeEmailScreen,
-          page: () => ChangeEmailScreen(),
-        ),
-        GetPage(
-          name: kRouteCreatePasswordScreen,
-          page: () => CreatePasswordScreen(),
-        ),
-        GetPage(
-          name: kRouteContactUsScreen,
-          page: () => ContactUsScreen(),
-        ),
-        GetPage(
-          name: kRoutePurchasedSimInfoScreen,
-          page: () => PurchasedSimInfoScreen(),
-        ),
-        GetPage(
-          name: kRouteMoreInfoScreen,
-          page: () => MoreInfoScreen(),
-        ),
-        GetPage(
-          name: kRouteAboutSimEzScreen,
-          page: () => AboutSimEzScreen(),
-        ),
-        GetPage(
-          name: kRoutePrivacyPolicyScreen,
-          page: () => PrivacyPolicyScreen(),
-        ),
-        GetPage(
-          name: kRouteTermsAndConditionScreen,
-          page: () => TermsAndConditionScreen(),
-        ),
-        GetPage(
-          name: kRouteOrdersBaseScreen,
-          page: () => OrdersBaseScreen(),
-        ),
-        GetPage(
-          name: kRouteInstallationScreen,
-          page: () => InstallationScreen(),
-        ),
-        GetPage(
-          name: kRouteOrderDetailsScreen,
-          page: () => OrderDetailsScreen(),
-        ),
-      ],
+    return GestureDetector(
+       onTap: () {
+         FocusManager.instance.primaryFocus?.unfocus();
+       },
+      child: GetMaterialApp(
+        title: appName,
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(primarySwatch: Colors.blue),
+        initialBinding: ControllerBinding(),
+        routingCallback: (value) {
+          AppConstants().currentRoute = value?.current ?? '';
+          debugPrint(' ############# routing callback : ${value?.current}');
+        },
+        home: const SplashScreen(),
+        getPages: [
+          GetPage(
+            name: kRouteMainAuthScreen,
+            page: () => MainAuthScreen(),
+          ),
+          GetPage(
+            name: kRouteLoginScreen,
+            page: () => LoginScreen(),
+          ),
+          GetPage(
+            name: kRouteBottomNavScreen,
+            page: () => BottomNavScreen(),
+          ),
+          GetPage(
+            name: kRouteSelectedCountrySimsScreen,
+            page: () => SelectedCountrySimsScreen(),
+          ),
+          GetPage(
+            name: kRouteSimInfoScreen,
+            page: () => SimInfoScreen(),
+          ),
+          GetPage(
+            name: kRouteDeviceCompatibilityScreen,
+            page: () => DeviceCompatibilityScreen(),
+          ),
+          GetPage(
+            name: kRouteAdditionalInfoScreen,
+            page: () => AdditionalInfoScreen(),
+          ),
+          GetPage(
+            name: kRouteAccountInfoBaseScreen,
+            page: () => AccountInfoBaseScreen(),
+          ),
+          GetPage(
+            name: kRouteChangePasswordScreen,
+            page: () => ChangePasswordScreen(),
+          ),
+          GetPage(
+            name: kRouteChangeEmailScreen,
+            page: () => ChangeEmailScreen(),
+          ),
+          GetPage(
+            name: kRouteCreatePasswordScreen,
+            page: () => CreatePasswordScreen(),
+          ),
+          GetPage(
+            name: kRouteContactUsScreen,
+            page: () => ContactUsScreen(),
+          ),
+          GetPage(
+            name: kRoutePurchasedSimInfoScreen,
+            page: () => PurchasedSimInfoScreen(),
+          ),
+          GetPage(
+            name: kRouteMoreInfoScreen,
+            page: () => MoreInfoScreen(),
+          ),
+          GetPage(
+            name: kRouteAboutSimEzScreen,
+            page: () => AboutSimEzScreen(),
+          ),
+          GetPage(
+            name: kRoutePrivacyPolicyScreen,
+            page: () => PrivacyPolicyScreen(),
+          ),
+          GetPage(
+            name: kRouteTermsAndConditionScreen,
+            page: () => TermsAndConditionScreen(),
+          ),
+          GetPage(
+            name: kRouteOrdersBaseScreen,
+            page: () => OrdersBaseScreen(),
+          ),
+          GetPage(
+            name: kRouteInstallationScreen,
+            page: () => InstallationScreen(),
+          ),
+          GetPage(
+            name: kRouteOrderDetailsScreen,
+            page: () => OrderDetailsScreen(),
+          ),
+          GetPage(
+            name: kRouteOtpScreen,
+            page: () => OtpScreen(),
+          ),
+        ],
+      ),
     );
   }
 }

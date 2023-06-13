@@ -18,78 +18,150 @@ class SignUpScreen extends GetView<SignUpController> {
       /// name textfield
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 34),
-        child: commonTextField(
-          controller: controller.nameController,
-          hintText: kHintEnterYourName,
-          labelText: kHintEnterYourName,
-          filledColor: kColorECECEC,
-          isShowElevation: false,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            commonTextField(
+              controller: controller.nameController,
+              hintText: kHintEnterYourName,
+              labelText: kHintEnterYourName,
+              filledColor: kColorECECEC,
+              isShowElevation: false,
+            ),
+            Obx(
+              () => Visibility(
+                visible: controller.isValidName.value == false &&
+                    controller.nameErrorText.value.trim().isNotEmpty,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10, top: 4),
+                  child: Text(controller.nameErrorText.value,
+                      style: TextStyles.k12kColorRedFF6161Bold400Arial),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
 
       /// email-id textfield
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 34, vertical: 12),
-        child: commonTextField(
-          controller: controller.emailIdController,
-          hintText: kHintEnterYourEmail,
-          labelText: kHintEnterYourEmail,
-          filledColor: kColorECECEC,
-          isShowElevation: false,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            commonTextField(
+              controller: controller.emailIdController,
+              hintText: kHintEnterYourEmail,
+              labelText: kHintEnterYourEmail,
+              filledColor: kColorECECEC,
+              isShowElevation: false,
+            ),
+            Obx(
+              () => Visibility(
+                visible: controller.isValidEmail.value == false &&
+                    controller.emailErrorText.value.trim().isNotEmpty,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10, top: 4),
+                  child: Text(controller.emailErrorText.value,
+                      style: TextStyles.k12kColorRedFF6161Bold400Arial),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
 
       /// password textfield
-      Obx(() {
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 34),
-          child: commonTextField(
-              controller: controller.passwordController,
-              hintText: kPassword,
-              labelText: kPassword,
-              filledColor: kColorECECEC,
-              isShowElevation: false,
-              obscure: !controller.isShowPassword.value,
-              suffixIcon: GestureDetector(
-                onTap: () {
-                  controller.isShowPassword.value =
-                      !controller.isShowPassword.value;
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: controller.isShowPassword.value
-                      ? Icon(Icons.remove_red_eye)
-                      : SvgPicture.asset(kIconPasswordOff),
+      Obx(
+        () {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 34),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                commonTextField(
+                  controller: controller.passwordController,
+                  hintText: kPassword,
+                  labelText: kPassword,
+                  filledColor: kColorECECEC,
+                  isShowElevation: false,
+                  obscure: !controller.isShowPassword.value,
+                  suffixIcon: GestureDetector(
+                    onTap: () {
+                      controller.isShowPassword.value =
+                          !controller.isShowPassword.value;
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: controller.isShowPassword.value
+                          ? Icon(Icons.remove_red_eye)
+                          : SvgPicture.asset(kIconPasswordOff),
+                    ),
+                  ),
                 ),
-              )),
-        );
-      }),
+                Obx(
+                  () => Visibility(
+                    visible: controller.isValidPassword.value == false &&
+                        controller.passwordErrorText.value.trim().isNotEmpty,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 4),
+                      child: Text(controller.passwordErrorText.value,
+                          style: TextStyles.k12kColorRedFF6161Bold400Arial),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
 
       /// confirm password textfield
-      Obx(() {
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 34, vertical: 12),
-          child: commonTextField(
-              controller: controller.confirmPasswordController,
-              hintText: kPassword,
-              labelText: kPassword,
-              filledColor: kColorECECEC,
-              isShowElevation: false,
-              obscure: !controller.isShowConfirmPassword.value,
-              suffixIcon: GestureDetector(
-                onTap: () {
-                  controller.isShowConfirmPassword.value =
-                      !controller.isShowConfirmPassword.value;
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: controller.isShowConfirmPassword.value
-                      ? Icon(Icons.remove_red_eye)
-                      : SvgPicture.asset(kIconPasswordOff),
+      Obx(
+        () {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 34, vertical: 12),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                commonTextField(
+                  controller: controller.confirmPasswordController,
+                  hintText: kPassword,
+                  labelText: kPassword,
+                  filledColor: kColorECECEC,
+                  isShowElevation: false,
+                  obscure: !controller.isShowConfirmPassword.value,
+                  suffixIcon: GestureDetector(
+                    onTap: () {
+                      controller.isShowConfirmPassword.value =
+                          !controller.isShowConfirmPassword.value;
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: controller.isShowConfirmPassword.value
+                          ? Icon(Icons.remove_red_eye)
+                          : SvgPicture.asset(kIconPasswordOff),
+                    ),
+                  ),
                 ),
-              )),
-        );
-      }),
+                Obx(
+                  () => Visibility(
+                    visible: controller.isValidConfirmPassword.value == false &&
+                        controller.confirmPasswordErrorText.value
+                            .trim()
+                            .isNotEmpty,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 4),
+                      child: Text(controller.confirmPasswordErrorText.value,
+                          style: TextStyles.k12kColorRedFF6161Bold400Arial),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
 
       /// forgot password
       const Padding(
@@ -105,7 +177,12 @@ class SignUpScreen extends GetView<SignUpController> {
 
       /// signUp button
       primaryButton(
-          onPress: () {}, buttonTxt: kSignup, height: 40, width: Get.width * .8),
+          onPress: () {
+            controller.checkUserInput();
+          },
+          buttonTxt: kSignup,
+          height: 40,
+          width: Get.width * .8),
 
       /// 'or login with' widget
       Padding(
@@ -118,7 +195,8 @@ class SignUpScreen extends GetView<SignUpController> {
               height: 0.8,
               color: kColorCBCBCB,
             ),
-            Text(kOrLoginWith.toUpperCase(),style: TextStyles.k10ColorBlackBold400),
+            Text(kOrLoginWith.toUpperCase(),
+                style: TextStyles.k10ColorBlackBold400),
             Container(
               width: Get.width * .3,
               height: 0.8,
@@ -140,14 +218,21 @@ class SignUpScreen extends GetView<SignUpController> {
 
       /// terms & privacy policy text
       Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 36,vertical: 30),
-        child: RichText(textAlign: TextAlign.center,
+        padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 30),
+        child: RichText(
+          textAlign: TextAlign.center,
           text: TextSpan(
             children: [
-              TextSpan(text: 'by registering, you agree to our ',style: TextStyles.k10ColorBlackBold400),
-              TextSpan(text: 'terms & condition ',style: TextStyles.k10Color1ADDD0Bold400),
-              TextSpan(text: 'and ',style: TextStyles.k10ColorBlackBold400),
-              TextSpan(text: 'privacy policy.',style: TextStyles.k10Color1ADDD0Bold400),
+              TextSpan(
+                  text: 'by registering, you agree to our ',
+                  style: TextStyles.k10ColorBlackBold400),
+              TextSpan(
+                  text: 'terms & condition ',
+                  style: TextStyles.k10Color1ADDD0Bold400),
+              TextSpan(text: 'and ', style: TextStyles.k10ColorBlackBold400),
+              TextSpan(
+                  text: 'privacy policy.',
+                  style: TextStyles.k10Color1ADDD0Bold400),
             ],
           ),
         ),

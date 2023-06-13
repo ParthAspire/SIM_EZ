@@ -18,12 +18,31 @@ class LoginScreen extends GetView<LoginController> {
       /// email-id textfield
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 34),
-        child: commonTextField(
-          controller: controller.emailIdController,
-          hintText: kEmailId,
-          labelText: kEmailId,
-          filledColor: kColorECECEC,
-          isShowElevation: false,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            commonTextField(
+              controller: controller.emailIdController,
+              hintText: kEmailId,
+              labelText: kEmailId,
+              filledColor: kColorECECEC,
+              isShowElevation: false,
+            ),
+            Obx(
+                  () =>
+                  Visibility(
+                    visible: controller.isValidEmail.value == false &&
+                        controller.emailErrorText.value
+                            .trim()
+                            .isNotEmpty,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 4),
+                      child: Text(controller.emailErrorText.value,
+                          style: TextStyles.k12kColorRedFF6161Bold400Arial),
+                    ),
+                  ),
+            ),
+          ],
         ),
       ),
 
@@ -31,25 +50,44 @@ class LoginScreen extends GetView<LoginController> {
       Obx(() {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 34, vertical: 12),
-          child: commonTextField(
-              controller: controller.passwordController,
-              hintText: kPassword,
-              labelText: kPassword,
-              filledColor: kColorECECEC,
-              isShowElevation: false,
-              obscure: !controller.isShowPassword.value,
-              suffixIcon: GestureDetector(
-                onTap: () {
-                  controller.isShowPassword.value =
-                      !controller.isShowPassword.value;
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: controller.isShowPassword.value
-                      ? Icon(Icons.remove_red_eye)
-                      : SvgPicture.asset(kIconPasswordOff),
-                ),
-              )),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              commonTextField(
+                  controller: controller.passwordController,
+                  hintText: kPassword,
+                  labelText: kPassword,
+                  filledColor: kColorECECEC,
+                  isShowElevation: false,
+                  obscure: !controller.isShowPassword.value,
+                  suffixIcon: GestureDetector(
+                    onTap: () {
+                      controller.isShowPassword.value =
+                          !controller.isShowPassword.value;
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: controller.isShowPassword.value
+                          ? Icon(Icons.remove_red_eye)
+                          : SvgPicture.asset(kIconPasswordOff),
+                    ),
+                  )),
+              Obx(
+                    () =>
+                    Visibility(
+                      visible: controller.isValidPassword.value == false &&
+                          controller.passwordErrorText.value
+                              .trim()
+                              .isNotEmpty,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10, top: 4),
+                        child: Text(controller.passwordErrorText.value,
+                            style: TextStyles.k12kColorRedFF6161Bold400Arial),
+                      ),
+                    ),
+              ),
+            ],
+          ),
         );
       }),
 
@@ -68,8 +106,11 @@ class LoginScreen extends GetView<LoginController> {
       /// login button
       primaryButton(
           onPress: () {
-            controller.navigateToLoginScreen();
-          }, buttonTxt: kLogin, height: 40, width: Get.width * .8),
+            controller.checkUserInput();
+          },
+          buttonTxt: kLogin,
+          height: 40,
+          width: Get.width * .8),
 
       /// 'or login with' widget
       Padding(
@@ -82,7 +123,8 @@ class LoginScreen extends GetView<LoginController> {
               height: 0.8,
               color: kColorCBCBCB,
             ),
-            Text(kOrLoginWith.toUpperCase(),style: TextStyles.k10ColorBlackBold400),
+            Text(kOrLoginWith.toUpperCase(),
+                style: TextStyles.k10ColorBlackBold400),
             Container(
               width: Get.width * .3,
               height: 0.8,

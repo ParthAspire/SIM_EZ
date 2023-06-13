@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:sim_ez/app/services/api_constants.dart';
 import 'package:sim_ez/app/services/common_headers.dart';
-import 'package:sim_ez/app/utils/aler_message_utils.dart';
+import 'package:sim_ez/app/utils/alert_message_utils.dart';
 import 'package:sim_ez/app/utils/logger_utils.dart';
 
 class ApiService {
