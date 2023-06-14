@@ -218,6 +218,7 @@ class ProfileBaseScreen extends GetView<ProfileBaseController> {
           submitText: kLogOut.toUpperCase(),
           cancelText: kCancel.toUpperCase(),
           onSubmit: () {
+            Get.back();
             controller.logOutAndClearStorage();
           },
           onCancel: () {

@@ -37,7 +37,6 @@ class SignUpController extends GetxController {
   }
 
   void checkUserInput() {
-    sendOtpApiCall();
     if (isValidName.value &&
         isValidEmail.value &&
         isValidPassword.value &&

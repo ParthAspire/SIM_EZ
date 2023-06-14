@@ -49,6 +49,5 @@ class ProfileBaseController extends GetxController {
   void logOutAndClearStorage() {
     Get.find<LocalStorage>().clearAllStorageData();
     Get.find<LocalStorage>().isLoggedIn.value = false;
-    Get.back();
   }
 }

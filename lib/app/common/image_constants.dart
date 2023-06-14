@@ -42,3 +42,5 @@ const kIconPopUpMenu = '$_iconPath/pop_up_menu_icon.svg';
 const kIconCorrect = '$_iconPath/correct_icon.svg';
 const kIconQrCode = '$_iconPath/qr_code_icon.svg';
 const kIconVisa = '$_iconPath/visa_icon.svg';
+const kIconCreditCard = '$_iconPath/credit_card_icon.svg';
+const kIconPaypal = '$_iconPath/paypal_icon.svg';

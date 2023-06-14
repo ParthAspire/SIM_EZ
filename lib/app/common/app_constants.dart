@@ -48,6 +48,8 @@ const String kNetwork = 'NETWORK';
 const String kAPN = 'APN';
 const String kTheAPNIsSetAutomatically = 'The APN is set automatically';
 const String kSend = 'Send';
+const String kSelect = 'Select';
+const String kApply = 'Apply';
 const String kPlanType = 'Plan type';
 const String kActivationPolicy = 'Activation policy';
 const String kShowMore = 'Show more';
@@ -142,6 +144,24 @@ const String kTOTALPRICE = 'TOTAL PRICE';
 const String kREFERRALREWARD = 'REFERRAL REWARD';
 const String kFINALPRICE  = 'FINAL PRICE ';
 const String kDeleteOrderDetails  = 'Delete Order Details';
+
+//  secure checkout Strings
+const String kSecureCheckout = 'Secure Checkout';
+const String kChoosePaymentMethod = 'Choose Payment Method';
+const String kPaymentTextOne = 'You can choose or Change the payment method to complete your order.';
+const String kApplyCode = 'Apply Code';
+const String kPaymentTextTwo = 'You can apply your discount / referral code with your purchase. ';
+const String kAmountToBePaid = 'Amount to be paid';
+const String kCompleteOrder = 'Complete order';
+const String kOrderSummary = 'Order Summary';
+const String kOrderSummaryTextOne = 'you can review your order summary';
+const String kTotalPrice = 'Total Price';
+
+// payment methods Strings
+const kPaymentMethod ='Payment Method';
+const kSelectPaymentMethodText ='Please select your payment method down below.';
+const kCreditDebitCard = 'Credit / Debit Card ';
+const kPaypal = 'Paypal';
 
 
 // error strings

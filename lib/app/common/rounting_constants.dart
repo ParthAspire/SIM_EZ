@@ -20,3 +20,6 @@ const kRouteOrdersBaseScreen = '/OrdersBaseScreen';
 const kRouteInstallationScreen = '/InstallationScreen';
 const kRouteOrderDetailsScreen = '/OrderDetailsScreen';
 const kRouteOtpScreen = '/OtpScreen';
+const kRouteSecureCheckoutScreen = '/SecureCheckoutScreen';
+const kRoutePaymentMethodsScreen = '/PaymentMethodsScreen';
+const kRouteApplyCodeScreen = '/ApplyCodeScreen';

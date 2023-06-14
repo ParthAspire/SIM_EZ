@@ -131,6 +131,12 @@ class TextStyles {
     fontWeight: FontWeight.w400,
     fontFamily: fontFamilyArial,
   );
+  static const k12kColorA7A7A7Bold400Arial = TextStyle(
+    fontSize: k12FontSize,
+    color: kColorA7A7A7,
+    fontWeight: FontWeight.w400,
+    fontFamily: fontFamilyArial,
+  );
 
   static const k14ColorWhiteBold400 = TextStyle(
     fontSize: k14FontSize,
@@ -148,6 +154,12 @@ class TextStyles {
     fontSize: k14FontSize,
     color: kColorBlack,
     fontWeight: FontWeight.w400,
+    fontFamily: fontFamilyArial,
+  );
+  static const k14ColorBlackBold700Arial = TextStyle(
+    fontSize: k14FontSize,
+    color: kColorBlack,
+    fontWeight: FontWeight.w700,
     fontFamily: fontFamilyArial,
   );
   static const k14ColorWhiteBold700Arial = TextStyle(

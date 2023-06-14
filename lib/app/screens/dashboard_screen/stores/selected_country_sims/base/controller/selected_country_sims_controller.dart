@@ -6,16 +6,24 @@ import '../../../../../../common/local_storage_constants.dart';
 
 class SelectedCountrySimsController extends GetxController {
   LocalStorage localStorage = Get.put(LocalStorage());
-  RxBool isLoggedIn = false.obs;
+  bool isLoggedIn = false;
+
+  RxBool isShowLoader = true.obs;
 
   @override
   Future<void> onInit() async {
-    isLoggedIn.value =
-        await localStorage.getBoolFromStorage(kStorageIsLoggedIn);
-    Get.find<LocalStorage>().isLoggedIn.listen((p0) {
-      isLoggedIn.value = p0;
-    });
+    await checkUserLoggedInOrNot();
     super.onInit();
+  }
+
+  checkUserLoggedInOrNot() async {
+    isShowLoader.value = false;
+    isLoggedIn = await localStorage.getBoolFromStorage(kStorageIsLoggedIn);
+
+    Get.find<LocalStorage>().isLoggedIn.listen((p0) {
+      isLoggedIn = p0;
+    });
+    isShowLoader.value = false;
   }
 
   void navigateToSimInfoScreen() {
@@ -24,5 +32,9 @@ class SelectedCountrySimsController extends GetxController {
 
   void navigateToLoginScreen() {
     Get.toNamed(kRouteMainAuthScreen);
+  }
+
+  void navigateToSecureCheckoutScreen() {
+    Get.toNamed(kRouteSecureCheckoutScreen);
   }
 }

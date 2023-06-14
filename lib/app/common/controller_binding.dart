@@ -7,6 +7,9 @@ import 'package:sim_ez/app/screens/dashboard_screen/bottom_nav/controller/bottom
 import 'package:sim_ez/app/screens/dashboard_screen/my_esims/base/controller/my_esim_base_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/my_esims/installation/controller/installation_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/my_esims/purchased_sim_info/controller/purchased_sim_info_controller.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/payment/apply_code/controller/apply_code_controller.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/payment/payment_methods/controller/payment_methods_controller.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/payment/secure_checkout/controller/secure_checkout_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/base/controller/account_info_base_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/change_email/controller/change_email_controller.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/change_password/controller/change_password_controller.dart';
@@ -132,6 +135,18 @@ class ControllerBinding extends Bindings {
     );
     Get.lazyPut<OtpController>(
       () => OtpController(),
+      fenix: true,
+    );
+    Get.lazyPut<SecureCheckOutController>(
+      () => SecureCheckOutController(),
+      fenix: true,
+    );
+    Get.lazyPut<PaymentMethodsController>(
+      () => PaymentMethodsController(),
+      fenix: true,
+    );
+    Get.lazyPut<ApplyCodeController>(
+      () => ApplyCodeController(),
       fenix: true,
     );
   }

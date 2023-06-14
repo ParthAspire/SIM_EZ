@@ -9,6 +9,9 @@ import 'package:sim_ez/app/screens/authentication/otp/view/otp_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/bottom_nav/view/bottom_nav_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/my_esims/installation/view/installation_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/my_esims/purchased_sim_info/view/purchased_sim_info_screen.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/payment/apply_code/view/apply_code_screen.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/payment/payment_methods/view/payment_methods_screen.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/payment/secure_checkout/view/secure_checkout_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/base/view/account_info_base_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/change_email/view/change_email_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/change_password/view/change_password_screen.dart';
@@ -134,6 +137,18 @@ class MyApp extends StatelessWidget {
           GetPage(
             name: kRouteOtpScreen,
             page: () => OtpScreen(),
+          ),
+          GetPage(
+            name: kRouteSecureCheckoutScreen,
+            page: () => SecureCheckoutScreen(),
+          ),
+          GetPage(
+            name: kRoutePaymentMethodsScreen,
+            page: () => PaymentMethodsScreen(),
+          ),
+          GetPage(
+            name: kRouteApplyCodeScreen,
+            page: () => ApplyCodeScreen(),
           ),
         ],
       ),
