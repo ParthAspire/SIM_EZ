@@ -14,70 +14,76 @@ class MyESimBaseScreen extends GetView<MyESimBaseController> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Obx(() {
-          return Column(
-            children: [
-              appLogo(),
-              Visibility(
-                  visible: controller.isLoggedIn.value,
+    return WillPopScope(
+      onWillPop: () async{
+        Get.back();
+        return false;
+      },
+      child: SafeArea(
+        child: Scaffold(
+          body: Obx(() {
+            return Column(
+              children: [
+                appLogo(),
+                Visibility(
+                    visible: controller.isLoggedIn.value,
+                    child: Expanded(
+                      child: Column(
+                        children: [
+                          currentAndArchivedSimTabBar(),
+                          controller.currentIndex.value == 0
+                              ? currentSimListing()
+                              : archivedSimListing(),
+                        ],
+                      ),
+                    )),
+                Visibility(
+                  visible: controller.isLoggedIn.value == false,
                   child: Expanded(
-                    child: Column(
-                      children: [
-                        currentAndArchivedSimTabBar(),
-                        controller.currentIndex.value == 0
-                            ? currentSimListing()
-                            : archivedSimListing(),
-                      ],
-                    ),
-                  )),
-              Visibility(
-                visible: controller.isLoggedIn.value == false,
-                child: Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 38),
-                    child: Column(
-                      children: [
-                        SvgPicture.asset(kImgEmptyMyESim),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 38),
-                          child: Text('Lorem Ipsum is back',
-                              style: TextStyles.k20ColorBlackBold400),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 10, left: 80, right: 80),
-                          child: Text(
-                              'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-                              style: TextStyles.k12kColorBlackBold400Arial,
-                              textAlign: TextAlign.center),
-                        ),
-                        Spacer(),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 36, vertical: 10),
-                          child: primaryButton(
-                              onPress: () {
-                                if (controller.isLoggedIn.value == false) {
-                                  controller.navigateToLoginScreen();
-                                } else {
-                                  controller.navigateToPurchasedSimInfoScreen();
-                                }
-                              },
-                              buttonTxt: controller.isLoggedIn.value == false
-                                  ? kLogIn.toUpperCase()
-                                  : kFindOutHow.toUpperCase(),
-                              height: 38),
-                        ),
-                      ],
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 38),
+                      child: Column(
+                        children: [
+                          SvgPicture.asset(kImgEmptyMyESim),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 38),
+                            child: Text('Lorem Ipsum is back',
+                                style: TextStyles.k20ColorBlackBold400),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 10, left: 80, right: 80),
+                            child: Text(
+                                'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+                                style: TextStyles.k12kColorBlackBold400Arial,
+                                textAlign: TextAlign.center),
+                          ),
+                          Spacer(),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 36, vertical: 10),
+                            child: primaryButton(
+                                onPress: () {
+                                  if (controller.isLoggedIn.value == false) {
+                                    controller.navigateToLoginScreen();
+                                  } else {
+                                    controller.navigateToPurchasedSimInfoScreen();
+                                  }
+                                },
+                                buttonTxt: controller.isLoggedIn.value == false
+                                    ? kLogIn.toUpperCase()
+                                    : kFindOutHow.toUpperCase(),
+                                height: 38),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          );
-        }),
+              ],
+            );
+          }),
+        ),
       ),
     );
   }

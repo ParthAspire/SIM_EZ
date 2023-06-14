@@ -9,6 +9,7 @@ import 'package:sim_ez/app/screens/authentication/otp/view/otp_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/bottom_nav/view/bottom_nav_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/my_esims/installation/view/installation_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/my_esims/purchased_sim_info/view/purchased_sim_info_screen.dart';
+import 'package:sim_ez/app/screens/dashboard_screen/my_esims/step_by_step_guide/view/guide_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/payment/apply_code/view/apply_code_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/payment/payment_methods/view/payment_methods_screen.dart';
 import 'package:sim_ez/app/screens/dashboard_screen/payment/secure_checkout/view/secure_checkout_screen.dart';
@@ -149,6 +150,10 @@ class MyApp extends StatelessWidget {
           GetPage(
             name: kRouteApplyCodeScreen,
             page: () => ApplyCodeScreen(),
+          ),
+          GetPage(
+            name: kRouteGuideScreen,
+            page: () => GuideScreen(),
           ),
         ],
       ),

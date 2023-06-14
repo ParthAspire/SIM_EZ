@@ -5,10 +5,14 @@ const _gifPath = 'lib/assets/gif';
 const kGifSplashScreen = '$_gifPath/splash_screen_gif.gif';
 
 const kImgSplashScreenBG = '$_imgPath/splash_screen_bg.svg';
+const kImgDummyPhone = '$_imgPath/dummy_phone_img.svg';
+const kImgDummyPhonePng = '$_imgPath/dummy_phone_png.png';
+const kIconQrCodePng = '$_imgPath/qr_code_img.png';
 
 /// empty or show error images
 const kImgErrorDeviceCompatibility = '$_imgPath/device_compatibility_error_img.svg';
 const kImgEmptyMyESim = '$_imgPath/empty_my_esim_img.svg';
+
 
 
 const kImgTempFlag = '$_imgPath/temp_flag_img.svg';

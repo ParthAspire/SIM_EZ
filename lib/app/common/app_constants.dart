@@ -130,6 +130,11 @@ const String kShareQrCode = 'Share qr code';
 const String kShowHowToAccessData = 'show how to access data';
 const String kSMDPADDRESS = 'SM-DP+ADDRESS';
 const String kACTIVATIONCODE = 'ACTIVATION CODE';
+const String kStepByStepGuide = 'Step by step guide';
+const String kSelectSupportedNetwork = 'Select Supported Network';
+const String kTurnOnDataRoaming = 'Turn on data roaming';
+const String kTurnOnYourSimEZ = 'Turn on your sim-EZ';
+const String kCongratulations = 'Congratulations!';
 
 // ORDER DETAILS
 const String kOrderDetails = 'Order Details';

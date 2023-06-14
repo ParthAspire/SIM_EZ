@@ -294,8 +294,8 @@ class InstallationScreen extends GetView<InstallationController> {
                     decoration: BoxDecoration(
                       color: kColorECECEC,
                     ),
-                    child: SvgPicture.asset(
-                      kIconQrCode,
+                    child: Image.asset(
+                      kIconQrCodePng,
                       color: kColorBlack,
                     ),
                   ),
@@ -317,7 +317,9 @@ class InstallationScreen extends GetView<InstallationController> {
                   Padding(
                     padding: const EdgeInsets.only(top: 70, bottom: 10),
                     child: primaryButton(
-                        onPress: () {},
+                        onPress: () {
+                          controller.navigateToGuideScreen();
+                        },
                         buttonTxt: kShowHowToAccessData.toUpperCase(),
                         textStyle: TextStyles.k12kColorWhiteBold400Arial,
                         height: 32,
