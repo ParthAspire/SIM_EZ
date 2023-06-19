@@ -14,21 +14,23 @@ class MainAuthScreen extends GetView<MainAuthController> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-      },
-      child: Scaffold(
+    return Obx(() {
+      return Scaffold(
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              controller.isUpdate.value ? SizedBox(height: 0) : SizedBox(
+                  height: 0),
               Padding(
                 padding: const EdgeInsets.only(top: 80),
                 child: SvgPicture.asset(kIconLogo),
               ),
               loginAndSignUpTab(),
-              Container(margin: EdgeInsets.symmetric(vertical: 26),height: 1, color: kColorE2E0E0),
+              Container(
+                  margin: EdgeInsets.symmetric(vertical: 26),
+                  height: 1,
+                  color: kColorE2E0E0),
               Obx(() {
                 return controller.currentIndex.value == 0
                     ? LoginScreen()
@@ -37,8 +39,8 @@ class MainAuthScreen extends GetView<MainAuthController> {
             ],
           ),
         ),
-      ),
-    );
+      );
+    });
   }
 
   Widget loginAndSignUpTab() {
@@ -50,6 +52,7 @@ class MainAuthScreen extends GetView<MainAuthController> {
           children: [
             InkWell(
               onTap: () {
+                controller.changeIndex(0);
                 controller.currentIndex.value = 0;
               },
               child: Container(
@@ -70,6 +73,7 @@ class MainAuthScreen extends GetView<MainAuthController> {
             ),
             InkWell(
               onTap: () {
+                controller.changeIndex(0);
                 controller.currentIndex.value = 1;
               },
               child: Container(

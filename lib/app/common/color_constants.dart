@@ -24,3 +24,4 @@ const kColorE2E2E2 = Color(0xFFE2E2E2);
 const kColor989898 = Color(0xFF989898);
 const kColorDFDFDF = Color(0xFFDFDFDF);
 const kColorA7A7A7 = Color(0xFFA7A7A7);
+const kColorGreen = Color(0XFF19A00D);

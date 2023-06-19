@@ -126,8 +126,8 @@ class SignUpScreen extends GetView<SignUpController> {
               children: [
                 commonTextField(
                   controller: controller.confirmPasswordController,
-                  hintText: kPassword,
-                  labelText: kPassword,
+                  hintText: kConfirmPassword,
+                  labelText: kConfirmPassword,
                   filledColor: kColorECECEC,
                   isShowElevation: false,
                   obscure: !controller.isShowConfirmPassword.value,
@@ -164,13 +164,18 @@ class SignUpScreen extends GetView<SignUpController> {
       ),
 
       /// forgot password
-      const Padding(
-        padding: EdgeInsets.only(right: 34, bottom: 30),
-        child: Align(
-          alignment: Alignment.topRight,
-          child: Text(
-            '$kForgotPassword ?',
-            style: TextStyles.k14kColorPrimaryBold400Italic,
+      GestureDetector(
+        onTap: () {
+          controller.navigateToForgotPasswordScreen();
+        },
+        child: const Padding(
+          padding: EdgeInsets.only(right: 34, bottom: 30),
+          child: Align(
+            alignment: Alignment.topRight,
+            child: Text(
+              '$kForgotPassword ?',
+              style: TextStyles.k14kColorPrimaryBold400Italic,
+            ),
           ),
         ),
       ),
@@ -210,9 +215,13 @@ class SignUpScreen extends GetView<SignUpController> {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset(kIconFB),
-          SizedBox(width: 10),
-          SvgPicture.asset(kIconGoogle),
+          SvgPicture.asset(kIconFB, height: 35),
+          SizedBox(width: 14),
+          GestureDetector(
+              onTap: () {
+                controller.gmailLogin();
+              },
+              child: SvgPicture.asset(kIconGoogle, height: 35)),
         ],
       ),
 

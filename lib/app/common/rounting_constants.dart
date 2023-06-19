@@ -24,3 +24,5 @@ const kRouteSecureCheckoutScreen = '/SecureCheckoutScreen';
 const kRoutePaymentMethodsScreen = '/PaymentMethodsScreen';
 const kRouteApplyCodeScreen = '/ApplyCodeScreen';
 const kRouteGuideScreen = '/GuideScreen';
+const kRouteForgotPasswordScreen = '/ForgotPasswordScreen';
+const kRouteResetPasswordScreen = '/ResetPasswordScreen';

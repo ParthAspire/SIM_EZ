@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "973129534112",
+    "project_id": "simez-54b6f",
+    "storage_bucket": "simez-54b6f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973129534112:android:94edc09b3103f11ee797c5",
+        "android_client_info": {
+          "package_name": "com.simez.sim_ez"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "973129534112-d7qqqv01il0gm1ds0dkslnfrddm6qigr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.simez.sim_ez",
+            "certificate_hash": "b20496d9f3c1e6f54a1f003fd99136863dce43cc"
+          }
+        },
+        {
+          "client_id": "973129534112-nlgncgt9enm9v3k4f18an4n34rdihu3q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1Wh0hlsj1u6R2wqceK1CRwV41RC_xTEM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "973129534112-nlgncgt9enm9v3k4f18an4n34rdihu3q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

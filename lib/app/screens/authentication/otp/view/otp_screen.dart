@@ -27,8 +27,9 @@ class OtpScreen extends GetView<OtpController> {
             child: SvgPicture.asset(kIconLogo),
           ),
           Padding(
-            padding: const EdgeInsets.all(28.0),
+            padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 28),
             child: RichText(
+              textAlign: TextAlign.center,
               text: TextSpan(
                 children: [
                   TextSpan(
@@ -107,18 +108,15 @@ class OtpScreen extends GetView<OtpController> {
             },
           ),
           Obx(
-                () =>
-                Visibility(
-                  visible: controller.isOtpEntered.value == false &&
-                      controller.otpErrorText.value
-                          .trim()
-                          .isNotEmpty,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 0, top: 0),
-                    child: Text(controller.otpErrorText.value,
-                        style: TextStyles.k12kColorRedFF6161Bold400Arial),
-                  ),
-                ),
+            () => Visibility(
+              visible: controller.isOtpEntered.value == false &&
+                  controller.otpErrorText.value.trim().isNotEmpty,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 0, top: 0),
+                child: Text(controller.otpErrorText.value,
+                    style: TextStyles.k12kColorRedFF6161Bold400Arial),
+              ),
+            ),
           ),
         ],
       ),

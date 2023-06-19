@@ -22,76 +22,141 @@ class ChangePasswordScreen extends GetView<ChangePasswordController> {
           SizedBox(height: 32),
 
           /// current password textfield
-          Obx(() {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 26),
-              child: commonTextField(
-                  controller: controller.currentPasswordController,
-                  hintText: kCurrentPassword,
-                  labelText: kCurrentPassword,
-                  obscure: !controller.isShowPassword.value,
-                  suffixIcon: GestureDetector(
-                    onTap: () {
-                      controller.isShowPassword.value =
-                          !controller.isShowPassword.value;
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: controller.isShowPassword.value
-                          ? Icon(Icons.remove_red_eye)
-                          : SvgPicture.asset(kIconPasswordOff),
+          Obx(
+            () {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 26),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    commonTextField(
+                      controller: controller.oldPasswordController,
+                      hintText: kCurrentPassword,
+                      labelText: kCurrentPassword,
+                      obscure: !controller.isShowPassword.value,
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          controller.isShowPassword.value =
+                              !controller.isShowPassword.value;
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(18.0),
+                          child: controller.isShowPassword.value
+                              ? Icon(Icons.remove_red_eye)
+                              : SvgPicture.asset(kIconPasswordOff),
+                        ),
+                      ),
                     ),
-                  )),
-            );
-          }),
+                    Obx(
+                      () => Visibility(
+                        visible: controller.isValidOldPassword.value == false &&
+                            controller.oldPasswordErrorText.value
+                                .trim()
+                                .isNotEmpty,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10, top: 4),
+                          child: Text(controller.oldPasswordErrorText.value,
+                              style: TextStyles.k12kColorRedFF6161Bold400Arial),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
 
           /// new password textfield
-          Obx(() {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 20),
-              child: commonTextField(
-                  controller: controller.retypePasswordController,
-                  hintText: kNewPassword,
-                  labelText: kNewPassword,
-                  obscure: !controller.isShowNewPassword.value,
-                  suffixIcon: GestureDetector(
-                    onTap: () {
-                      controller.isShowNewPassword.value =
-                          !controller.isShowNewPassword.value;
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: controller.isShowNewPassword.value
-                          ? Icon(Icons.remove_red_eye)
-                          : SvgPicture.asset(kIconPasswordOff),
+          Obx(
+            () {
+              return Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 26, vertical: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    commonTextField(
+                      controller: controller.retypePasswordController,
+                      hintText: kNewPassword,
+                      labelText: kNewPassword,
+                      obscure: !controller.isShowNewPassword.value,
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          controller.isShowNewPassword.value =
+                              !controller.isShowNewPassword.value;
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(18.0),
+                          child: controller.isShowNewPassword.value
+                              ? Icon(Icons.remove_red_eye)
+                              : SvgPicture.asset(kIconPasswordOff),
+                        ),
+                      ),
                     ),
-                  )),
-            );
-          }),
+                    Obx(
+                      () => Visibility(
+                        visible: controller.isValidPassword.value == false &&
+                            controller.newPasswordErrorText.value
+                                .trim()
+                                .isNotEmpty,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10, top: 4),
+                          child: Text(controller.newPasswordErrorText.value,
+                              style: TextStyles.k12kColorRedFF6161Bold400Arial),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
 
           /// retype password textfield
-          Obx(() {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 26),
-              child: commonTextField(
-                  controller: controller.newPasswordController,
-                  hintText: kRetypePassword,
-                  labelText: kRetypePassword,
-                  obscure: !controller.isShowPassword.value,
-                  suffixIcon: GestureDetector(
-                    onTap: () {
-                      controller.isShowPassword.value =
-                          !controller.isShowPassword.value;
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: controller.isShowPassword.value
-                          ? Icon(Icons.remove_red_eye)
-                          : SvgPicture.asset(kIconPasswordOff),
+          Obx(
+            () {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 26),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    commonTextField(
+                      controller: controller.newPasswordController,
+                      hintText: kRetypePassword,
+                      labelText: kRetypePassword,
+                      obscure: !controller.isShowConfirmPassword.value,
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          controller.isShowConfirmPassword.value =
+                              !controller.isShowConfirmPassword.value;
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(18.0),
+                          child: controller.isShowConfirmPassword.value
+                              ? Icon(Icons.remove_red_eye)
+                              : SvgPicture.asset(kIconPasswordOff),
+                        ),
+                      ),
                     ),
-                  )),
-            );
-          }),
+                    Obx(
+                      () => Visibility(
+                        visible:
+                            controller.isValidConfirmPassword.value == false &&
+                                controller.confirmPasswordErrorText.value
+                                    .trim()
+                                    .isNotEmpty,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10, top: 4),
+                          child: Text(controller.confirmPasswordErrorText.value,
+                              style: TextStyles.k12kColorRedFF6161Bold400Arial),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
 
           Spacer(),
 
@@ -101,7 +166,11 @@ class ChangePasswordScreen extends GetView<ChangePasswordController> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 26),
               child: primaryButton(
-                  onPress: () {}, buttonTxt: kChange.toUpperCase(), height: 38),
+                  onPress: () {
+                    controller.checkUserInput();
+                  },
+                  buttonTxt: kChange.toUpperCase(),
+                  height: 38),
             ),
           ),
         ],

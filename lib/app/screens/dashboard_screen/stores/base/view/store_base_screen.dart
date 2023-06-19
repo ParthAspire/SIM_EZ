@@ -48,11 +48,13 @@ class StoreBaseScreen extends GetView<StoreBaseController> {
   }
 
   welcomeText() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 18),
-      child: Text('$kHello, ${controller.userName.value}',
-          style: TextStyles.k20ColorBlackBold400),
-    );
+    return Obx(() {
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 18),
+        child: Text('$kHello, ${controller.userName.value}',
+            style: TextStyles.k20ColorBlackBold400),
+      );
+    });
   }
 
   searchTextField() {
@@ -131,7 +133,7 @@ class StoreBaseScreen extends GetView<StoreBaseController> {
               controller.navigateToSelectedCountrySimsScreen();
             },
             contentPadding:
-                EdgeInsets.only(left: 32, right: 16, top: 0, bottom: 0),
+            EdgeInsets.only(left: 32, right: 16, top: 0, bottom: 0),
             leading: SvgPicture.asset(kImgTempFlag),
             title: Text('United States'),
             trailing: Icon(Icons.navigate_next_outlined, color: kColor1ADDD0),

@@ -14,6 +14,7 @@ const String kCurrentPassword = 'Current Password';
 const String kConfirmPassword = 'Confirm Password';
 const String kForgotPassword = 'Forgot Password';
 const String kChangePassword = 'Change Password';
+const String kRestPassword = 'Reset Password';
 const String kChangeEmail = 'Change Email';
 const String kFirstName = 'First Name';
 const String kLastName = 'Last Name';
@@ -24,6 +25,7 @@ const String kMessage = 'Message';
 const String kDeleteAccount = 'Delete Account';
 const String kEnterCode = 'Enter Code';
 const String kVerifyOTP = 'Verify OTP';
+const String kSendOTP = 'Send OTP';
 
 const String kHintEnterYourName = 'Enter your name';
 const String kHintEnterYourEmail = 'Enter your email';
@@ -170,14 +172,17 @@ const kPaypal = 'Paypal';
 
 
 // error strings
-const kEmptyName = 'Please enter user-name';
-const kEmptyEmail = 'Please enter emailId';
-const kEmptyPassword = 'Please enter password';
+const kEmptyName = 'Please enter your name';
+const kEmptyEmail = 'Please enter email';
+const kEmptyPassword = 'Please enter your password';
+const kEmptyOldPassword = 'Please enter old password';
+const kEmptyNewPassword = 'Please enter new password';
 const kEmptyConfirmPassword = 'Please enter confirm password';
-const kEmptyOtp = 'Please enter OTP';
+const kEmptyOtp = 'Please enter your OTP';
 
-const kValidEmail = 'enter valid emailId';
-const kValidPassword = 'enter valid password';
+const kValidEmail = 'enter valid email';
+// const kValidPassword = 'enter valid password';
+const kValidPassword = 'Please enter 8 digits long password';
 const kValidConfirmPassword = 'confirm password doesn\'t match';
 const kValidOtp = 'please enter 4 digit OTP';
 

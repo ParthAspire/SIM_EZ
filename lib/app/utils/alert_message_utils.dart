@@ -9,10 +9,10 @@ import 'logger_utils.dart';
 class AlertMessageUtils {
   void showSnackBar(
       {String title = '',
-        String message = '',
-        SnackPosition snackBarPosition = SnackPosition.BOTTOM,
-        Color bgColor = kColorPrimary,
-        Color textColor = kColorBlack}) {
+      String message = '',
+      SnackPosition snackBarPosition = SnackPosition.BOTTOM,
+      Color bgColor = kColorPrimary,
+      Color textColor = kColorBlack}) {
     Get.snackbar(title, message,
         snackPosition: snackBarPosition,
         backgroundGradient: LinearGradient(colors: [
@@ -22,7 +22,9 @@ class AlertMessageUtils {
         colorText: textColor);
   }
 
-  void showToastMessages({String msg = ''}) {
+  void showToastMessages(
+      {String msg = '',
+      TextStyle textStyle = TextStyles.k16kColorPrimaryBold400}) {
     Get.snackbar('', msg,
         isDismissible: true,
         colorText: kColorPrimary,
@@ -31,7 +33,7 @@ class AlertMessageUtils {
         messageText: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(msg, style: TextStyles.k16kColorPrimaryBold400),
+            Text(msg, style: textStyle),
             GestureDetector(
               onTap: () {
                 Get.back();

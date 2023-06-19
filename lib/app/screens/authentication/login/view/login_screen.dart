@@ -7,6 +7,7 @@ import 'package:sim_ez/app/common/app_constants.dart';
 import 'package:sim_ez/app/common/color_constants.dart';
 import 'package:sim_ez/app/common/image_constants.dart';
 import 'package:sim_ez/app/screens/authentication/login/controller/login_controller.dart';
+import 'package:sim_ez/app/services/gmail_services.dart';
 import 'package:sim_ez/app/utils/text_styles.dart';
 
 class LoginScreen extends GetView<LoginController> {
@@ -29,18 +30,15 @@ class LoginScreen extends GetView<LoginController> {
               isShowElevation: false,
             ),
             Obx(
-                  () =>
-                  Visibility(
-                    visible: controller.isValidEmail.value == false &&
-                        controller.emailErrorText.value
-                            .trim()
-                            .isNotEmpty,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 10, top: 4),
-                      child: Text(controller.emailErrorText.value,
-                          style: TextStyles.k12kColorRedFF6161Bold400Arial),
-                    ),
-                  ),
+              () => Visibility(
+                visible: controller.isValidEmail.value == false &&
+                    controller.emailErrorText.value.trim().isNotEmpty,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10, top: 4),
+                  child: Text(controller.emailErrorText.value,
+                      style: TextStyles.k12kColorRedFF6161Bold400Arial),
+                ),
+              ),
             ),
           ],
         ),
@@ -73,18 +71,15 @@ class LoginScreen extends GetView<LoginController> {
                     ),
                   )),
               Obx(
-                    () =>
-                    Visibility(
-                      visible: controller.isValidPassword.value == false &&
-                          controller.passwordErrorText.value
-                              .trim()
-                              .isNotEmpty,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 10, top: 4),
-                        child: Text(controller.passwordErrorText.value,
-                            style: TextStyles.k12kColorRedFF6161Bold400Arial),
-                      ),
-                    ),
+                () => Visibility(
+                  visible: controller.isValidPassword.value == false &&
+                      controller.passwordErrorText.value.trim().isNotEmpty,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10, top: 4),
+                    child: Text(controller.passwordErrorText.value,
+                        style: TextStyles.k12kColorRedFF6161Bold400Arial),
+                  ),
+                ),
               ),
             ],
           ),
@@ -92,13 +87,18 @@ class LoginScreen extends GetView<LoginController> {
       }),
 
       /// forgot password
-      const Padding(
-        padding: EdgeInsets.only(right: 34, bottom: 30),
-        child: Align(
-          alignment: Alignment.topRight,
-          child: Text(
-            '$kForgotPassword ?',
-            style: TextStyles.k14kColorPrimaryBold400Italic,
+      GestureDetector(
+        onTap: () {
+          controller.navigateToForgotPasswordScreen();
+        },
+        child: const Padding(
+          padding: EdgeInsets.only(right: 34, bottom: 30),
+          child: Align(
+            alignment: Alignment.topRight,
+            child: Text(
+              '$kForgotPassword ?',
+              style: TextStyles.k14kColorPrimaryBold400Italic,
+            ),
           ),
         ),
       ),
@@ -138,9 +138,14 @@ class LoginScreen extends GetView<LoginController> {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset(kIconFB),
-          SizedBox(width: 10),
-          SvgPicture.asset(kIconGoogle),
+          SvgPicture.asset(kIconFB, height: 35),
+          SizedBox(width: 14),
+          GestureDetector(
+            onTap: () {
+             controller.gmailLogin();
+            },
+            child: SvgPicture.asset(kIconGoogle, height: 35),
+          ),
         ],
       ),
     ]);

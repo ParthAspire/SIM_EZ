@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.simez.sim_ez">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="sim_ez"
         android:name="${applicationName}"

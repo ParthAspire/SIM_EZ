@@ -22,14 +22,16 @@ class ProfileBaseScreen extends GetView<ProfileBaseController> {
           children: [
 
             /// user name
-            Row(
-              children: [
-                SvgPicture.asset(kIconDefaultUser),
-                SizedBox(width: 8),
-                Text('$kHello, ${controller.userName.value}',
-                    style: TextStyles.k20ColorBlackBold400),
-              ],
-            ),
+            Obx(() {
+              return Row(
+                children: [
+                  SvgPicture.asset(kIconDefaultUser),
+                  SizedBox(width: 8),
+                  Text('$kHello, ${controller.userName.value}',
+                      style: TextStyles.k20ColorBlackBold400),
+                ],
+              );
+            }),
 
             /// first card
             Obx(() {

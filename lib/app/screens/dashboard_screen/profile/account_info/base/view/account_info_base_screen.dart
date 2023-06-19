@@ -10,64 +10,76 @@ import 'package:sim_ez/app/screens/dashboard_screen/profile/account_info/base/co
 import 'package:sim_ez/app/utils/text_styles.dart';
 
 class AccountInfoBaseScreen extends GetView<AccountInfoBaseController> {
-  const AccountInfoBaseScreen({Key? key}) : super(key: key);
+  AccountInfoBaseScreen({Key? key}) : super(key: key) {
+    final intentData = Get.arguments;
+    controller.setIntentData(intentData: intentData);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: getAppBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+
             /// user name
-            Row(
-              children: [
-                SvgPicture.asset(kIconDefaultUser),
-                SizedBox(width: 8),
-                const Text('$kHello, UserName',
-                    style: TextStyles.k20ColorBlackBold400),
-              ],
-            ),
+            Obx(() {
+              return Row(
+                children: [
+                  SvgPicture.asset(kIconDefaultUser),
+                  SizedBox(width: 8),
+                  Text('$kHello, ${controller.userDetails.value.name??''}',
+                      style: TextStyles.k20ColorBlackBold400),
+                ],
+              );
+            }),
 
             /// first name textfield
             Padding(
               padding: const EdgeInsets.only(top: 24, bottom: 20),
               child: commonTextField(
-                  controller: controller.firstNameController,
-                  hintText: kFirstName,
-                  labelText: kFirstName,
-                  enabled: false),
+                controller: controller.firstNameController,
+                hintText: kFirstName,
+                labelText: kFirstName,
+                // enabled: false,
+              ),
             ),
 
             /// last name textfield
             commonTextField(
-                controller: controller.lastNameController,
-                hintText: kLastName,
-                labelText: kLastName,
-                enabled: false),
+              controller: controller.lastNameController,
+              hintText: kLastName,
+              labelText: kLastName,
+              // enabled: false
+            ),
 
             /// email name textfield
             InkWell(
               onTap: () {
                 controller.navigateToChangeEmailScreen();
               },
-              child: Padding(
-                padding: const EdgeInsets.only(top: 20, bottom: 20),
-                child: commonTextField(
-                    controller: controller.emailIdController,
-                    hintText: kEmailId,
-                    labelText: kEmailId,
-                    enabled: false,
-                    suffixIcon: primaryButton(
-                        onPress: () {
-                          controller.navigateToChangeEmailScreen();
-                        },
-                        buttonTxt: kChange.toUpperCase(),
-                        width: 75,
-                        height: 22,
-                        textStyle: TextStyles.k10ColorWhiteBold400Arial)),
+              child: IgnorePointer(
+                ignoring: true,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 20, bottom: 20),
+                  child: commonTextField(
+                      controller: controller.emailIdController,
+                      hintText: kEmailId,
+                      labelText: kEmailId,
+                      // enabled: false,
+                      suffixIcon: primaryButton(
+                          onPress: () {
+                            controller.navigateToChangeEmailScreen();
+                          },
+                          buttonTxt: kChange.toUpperCase(),
+                          width: 75,
+                          height: 22,
+                          textStyle: TextStyles.k10ColorWhiteBold400Arial)),
+                ),
               ),
             ),
 
@@ -85,7 +97,8 @@ class AccountInfoBaseScreen extends GetView<AccountInfoBaseController> {
                       onPress: () {
                         controller.navigateToChangePasswordScreen();
                       },
-                      buttonTxt: kCreate.toUpperCase(),
+                      buttonTxt: kChange.toUpperCase(),
+                      // buttonTxt: kCreate.toUpperCase(),
                       width: 75,
                       height: 22,
                       textStyle: TextStyles.k10ColorWhiteBold400Arial)),
@@ -102,11 +115,11 @@ class AccountInfoBaseScreen extends GetView<AccountInfoBaseController> {
                       checkColor: kColorBlack,
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       visualDensity:
-                          VisualDensity(horizontal: -4, vertical: -4),
+                      VisualDensity(horizontal: -4, vertical: -4),
                       value: controller.isReceiveEmail.value,
                       onChanged: (value) {
                         controller.isReceiveEmail.value =
-                            !controller.isReceiveEmail.value;
+                        !controller.isReceiveEmail.value;
                       },
                     );
                   }),

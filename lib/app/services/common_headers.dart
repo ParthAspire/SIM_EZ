@@ -11,7 +11,7 @@ Future<Map<String, String>> commonHeaders() async {
   var headers = {
     'content-Type': 'application/json',
     "accept": "application/json",
-    "Authorization": getToken ?? ''
+    "Authorization": 'Bearer ${getToken ?? ''}'
   };
   return headers;
 }
