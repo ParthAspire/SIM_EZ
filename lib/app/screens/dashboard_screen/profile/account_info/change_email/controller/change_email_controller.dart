@@ -7,4 +7,6 @@ class ChangeEmailController extends GetxController {
   TextEditingController currentPasswordController = TextEditingController();
 
   RxBool isShowPassword = false.obs;
+
+  void setIntentData({required dynamic intentData}) {}
 }

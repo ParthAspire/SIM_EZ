@@ -29,21 +29,28 @@ class ChangePasswordScreen extends GetView<ChangePasswordController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    commonTextField(
-                      controller: controller.oldPasswordController,
-                      hintText: kCurrentPassword,
-                      labelText: kCurrentPassword,
-                      obscure: !controller.isShowPassword.value,
-                      suffixIcon: GestureDetector(
-                        onTap: () {
-                          controller.isShowPassword.value =
-                              !controller.isShowPassword.value;
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.all(18.0),
-                          child: controller.isShowPassword.value
-                              ? Icon(Icons.remove_red_eye)
-                              : SvgPicture.asset(kIconPasswordOff),
+                    Focus(
+                      onFocusChange: (value) {
+                        if (value == false) {
+                          controller.oldPasswordValidation();
+                        }
+                      },
+                      child: commonTextField(
+                        controller: controller.oldPasswordController,
+                        hintText: kCurrentPassword,
+                        labelText: kCurrentPassword,
+                        obscure: !controller.isShowPassword.value,
+                        suffixIcon: GestureDetector(
+                          onTap: () {
+                            controller.isShowPassword.value =
+                                !controller.isShowPassword.value;
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(18.0),
+                            child: controller.isShowPassword.value
+                                ? Icon(Icons.remove_red_eye)
+                                : SvgPicture.asset(kIconPasswordOff),
+                          ),
                         ),
                       ),
                     ),
@@ -75,21 +82,28 @@ class ChangePasswordScreen extends GetView<ChangePasswordController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    commonTextField(
-                      controller: controller.retypePasswordController,
-                      hintText: kNewPassword,
-                      labelText: kNewPassword,
-                      obscure: !controller.isShowNewPassword.value,
-                      suffixIcon: GestureDetector(
-                        onTap: () {
-                          controller.isShowNewPassword.value =
-                              !controller.isShowNewPassword.value;
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.all(18.0),
-                          child: controller.isShowNewPassword.value
-                              ? Icon(Icons.remove_red_eye)
-                              : SvgPicture.asset(kIconPasswordOff),
+                    Focus(
+                      onFocusChange: (value) {
+                        if (value == false) {
+                          controller.newPasswordValidation(isFocus: true);
+                        }
+                      },
+                      child: commonTextField(
+                        controller: controller.newPasswordController,
+                        hintText: kNewPassword,
+                        labelText: kNewPassword,
+                        obscure: !controller.isShowNewPassword.value,
+                        suffixIcon: GestureDetector(
+                          onTap: () {
+                            controller.isShowNewPassword.value =
+                                !controller.isShowNewPassword.value;
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(18.0),
+                            child: controller.isShowNewPassword.value
+                                ? Icon(Icons.remove_red_eye)
+                                : SvgPicture.asset(kIconPasswordOff),
+                          ),
                         ),
                       ),
                     ),
@@ -120,21 +134,28 @@ class ChangePasswordScreen extends GetView<ChangePasswordController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    commonTextField(
-                      controller: controller.newPasswordController,
-                      hintText: kRetypePassword,
-                      labelText: kRetypePassword,
-                      obscure: !controller.isShowConfirmPassword.value,
-                      suffixIcon: GestureDetector(
-                        onTap: () {
-                          controller.isShowConfirmPassword.value =
-                              !controller.isShowConfirmPassword.value;
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.all(18.0),
-                          child: controller.isShowConfirmPassword.value
-                              ? Icon(Icons.remove_red_eye)
-                              : SvgPicture.asset(kIconPasswordOff),
+                    Focus(
+                      onFocusChange: (value) {
+                        if (value == false) {
+                          controller.confirmPasswordValidation(isFocus: true);
+                        }
+                      },
+                      child: commonTextField(
+                        controller: controller.retypePasswordController,
+                        hintText: kRetypePassword,
+                        labelText: kRetypePassword,
+                        obscure: !controller.isShowConfirmPassword.value,
+                        suffixIcon: GestureDetector(
+                          onTap: () {
+                            controller.isShowConfirmPassword.value =
+                                !controller.isShowConfirmPassword.value;
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(18.0),
+                            child: controller.isShowConfirmPassword.value
+                                ? Icon(Icons.remove_red_eye)
+                                : SvgPicture.asset(kIconPasswordOff),
+                          ),
                         ),
                       ),
                     ),

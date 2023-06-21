@@ -22,7 +22,7 @@
           }
         },
         {
-          "client_id": "973129534112-nlgncgt9enm9v3k4f18an4n34rdihu3q.apps.googleusercontent.com",
+          "client_id": "973129534112-81fde3egcf6g2ime2l81mcodop4hq6u8.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -35,7 +35,44 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "973129534112-nlgncgt9enm9v3k4f18an4n34rdihu3q.apps.googleusercontent.com",
+              "client_id": "973129534112-81fde3egcf6g2ime2l81mcodop4hq6u8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973129534112:android:b0b8a90ef1ccb5cbe797c5",
+        "android_client_info": {
+          "package_name": "com.simez.simez"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "973129534112-df9h111s4jpcd573bns9rsgsjqkhf9d4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.simez.simez",
+            "certificate_hash": "b20496d9f3c1e6f54a1f003fd99136863dce43cc"
+          }
+        },
+        {
+          "client_id": "973129534112-81fde3egcf6g2ime2l81mcodop4hq6u8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1Wh0hlsj1u6R2wqceK1CRwV41RC_xTEM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "973129534112-81fde3egcf6g2ime2l81mcodop4hq6u8.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

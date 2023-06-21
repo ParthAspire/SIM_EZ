@@ -130,7 +130,7 @@ class AuthRepo {
       {required VerifyOtpRequestModel requestModel}) async {
     try {
       var response = await ApiService().postRequest(
-          endPoint: ApiConst.forgetPassOtp,
+          endPoint: ApiConst.forgotOtpVerify,
           requestModel: verifyOtpRequestModelToJson(requestModel));
 
       if (response != null) {

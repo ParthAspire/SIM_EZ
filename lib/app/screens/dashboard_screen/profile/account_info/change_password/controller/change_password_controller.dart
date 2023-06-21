@@ -61,7 +61,7 @@ class ChangePasswordController extends GetxController {
     }
   }
 
-  void newPasswordValidation() {
+  void newPasswordValidation({bool isFocus = false}) {
     isValidPassword.value = false;
     if (newPasswordController.text.trim().isNotEmpty) {
       if (newPasswordController.text.trim().length >= 8) {
@@ -75,9 +75,12 @@ class ChangePasswordController extends GetxController {
       newPasswordErrorText.value = kEmptyNewPassword;
       isValidPassword.value = false;
     }
+    if (retypePasswordController.text.trim().isNotEmpty) {
+      confirmPasswordValidation(isFocus: isFocus);
+    }
   }
 
-  void confirmPasswordValidation() {
+  void confirmPasswordValidation({bool isFocus = false}) {
     isValidConfirmPassword.value = false;
     if (retypePasswordController.text.trim().isNotEmpty) {
       if (retypePasswordController.text.trim() ==
@@ -94,7 +97,8 @@ class ChangePasswordController extends GetxController {
     }
     if (isValidOldPassword.value &&
         isValidPassword.value &&
-        isValidConfirmPassword.value) {
+        isValidConfirmPassword.value &&
+        isFocus == false) {
       checkUserInput();
     }
   }
@@ -114,8 +118,16 @@ class ChangePasswordController extends GetxController {
             msg: 'Password changed successfully',
             textStyle: TextStyles.k16kColorGreenBold700Arial);
       }
+      resetValidations();
     } catch (e) {
+      resetValidations();
       LoggerUtils.logException('changePasswordApiCall', e);
     }
+  }
+
+  resetValidations() {
+    isValidOldPassword.value = false;
+    isValidPassword.value = false;
+    isValidConfirmPassword.value = false;
   }
 }

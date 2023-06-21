@@ -22,12 +22,19 @@ class LoginScreen extends GetView<LoginController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            commonTextField(
-              controller: controller.emailIdController,
-              hintText: kEmailId,
-              labelText: kEmailId,
-              filledColor: kColorECECEC,
-              isShowElevation: false,
+            Focus(
+              onFocusChange: (value) {
+                if (value == false) {
+                  controller.emailValidation();
+                }
+              },
+              child: commonTextField(
+                controller: controller.emailIdController,
+                hintText: kEmailId,
+                labelText: kEmailId,
+                filledColor: kColorECECEC,
+                isShowElevation: false,
+              ),
             ),
             Obx(
               () => Visibility(
@@ -51,25 +58,32 @@ class LoginScreen extends GetView<LoginController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              commonTextField(
-                  controller: controller.passwordController,
-                  hintText: kPassword,
-                  labelText: kPassword,
-                  filledColor: kColorECECEC,
-                  isShowElevation: false,
-                  obscure: !controller.isShowPassword.value,
-                  suffixIcon: GestureDetector(
-                    onTap: () {
-                      controller.isShowPassword.value =
-                          !controller.isShowPassword.value;
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: controller.isShowPassword.value
-                          ? Icon(Icons.remove_red_eye)
-                          : SvgPicture.asset(kIconPasswordOff),
-                    ),
-                  )),
+              Focus(
+                onFocusChange: (value) {
+                  if (value == false) {
+                    controller.passwordValidation(isFocus: true);
+                  }
+                },
+                child: commonTextField(
+                    controller: controller.passwordController,
+                    hintText: kPassword,
+                    labelText: kPassword,
+                    filledColor: kColorECECEC,
+                    isShowElevation: false,
+                    obscure: !controller.isShowPassword.value,
+                    suffixIcon: GestureDetector(
+                      onTap: () {
+                        controller.isShowPassword.value =
+                            !controller.isShowPassword.value;
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(18.0),
+                        child: controller.isShowPassword.value
+                            ? Icon(Icons.remove_red_eye)
+                            : SvgPicture.asset(kIconPasswordOff),
+                      ),
+                    )),
+              ),
               Obx(
                 () => Visibility(
                   visible: controller.isValidPassword.value == false &&
@@ -142,7 +156,7 @@ class LoginScreen extends GetView<LoginController> {
           SizedBox(width: 14),
           GestureDetector(
             onTap: () {
-             controller.gmailLogin();
+              controller.gmailLogin();
             },
             child: SvgPicture.asset(kIconGoogle, height: 35),
           ),

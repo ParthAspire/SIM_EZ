@@ -16,6 +16,8 @@ class BottomNavScreen extends GetView<BottomNavController> {
 
   @override
   Widget build(BuildContext context) {
+    print('build ::: ${controller.isUpdate.value}');
+    var bottomController = Get.find<BottomNavController>();
     return Obx(() {
       return WillPopScope(
         onWillPop: () async {
@@ -23,17 +25,18 @@ class BottomNavScreen extends GetView<BottomNavController> {
           return false;
         },
         child: Scaffold(
-            bottomNavigationBar: buildBottomNavigationMenu(context, controller),
+            bottomNavigationBar: buildBottomNavigationMenu(context, bottomController),
             body: Obx(() {
+              print('build ::: ${controller.isUpdate.value}');
               return Column(
                 children: [
-                  controller.isUpdate.value
+                  bottomController.tabIndex.value ==0
                       ? SizedBox(height: 0)
                       : SizedBox(height: 0),
                   Obx(() {
                     return Expanded(
                       child: IndexedStack(
-                        index: controller.tabIndex.value,
+                        index: bottomController.tabIndex.value,
                         children: <Widget>[
                           StoreBaseScreen(),
                           MyESimBaseScreen(),
@@ -188,9 +191,8 @@ class BottomNavScreen extends GetView<BottomNavController> {
                 unselectedItemColor: kColorBlack,
                 selectedItemColor: kColor1ADDD0,
 
-
                 unselectedLabelStyle: TextStyles.k14ColorBlackBold400Arial,
-                selectedLabelStyle:  TextStyles.k14ColorWhiteBold400Arial,
+                selectedLabelStyle: TextStyles.k14ColorWhiteBold400Arial,
                 items: [
                   BottomNavigationBarItem(
                     activeIcon: Padding(

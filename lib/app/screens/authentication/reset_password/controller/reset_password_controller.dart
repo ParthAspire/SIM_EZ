@@ -66,7 +66,7 @@ class ResetPasswordController extends GetxController {
     }
   }
 
-  void confirmPasswordValidation() {
+  void confirmPasswordValidation({bool isFocus = false}) {
     isValidConfirmPassword.value = false;
     if (confirmPasswordController.text.trim().isNotEmpty) {
       if (confirmPasswordController.text.trim() ==
@@ -81,7 +81,9 @@ class ResetPasswordController extends GetxController {
       confirmPasswordErrorText.value = kEmptyConfirmPassword;
       isValidConfirmPassword.value = false;
     }
-    if (isValidConfirmPassword.value && isValidConfirmPassword.value) {
+    if (isValidConfirmPassword.value &&
+        isValidConfirmPassword.value &&
+        isFocus == false) {
       checkUserInput();
     }
   }

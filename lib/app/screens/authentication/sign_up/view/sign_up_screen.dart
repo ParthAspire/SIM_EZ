@@ -21,12 +21,19 @@ class SignUpScreen extends GetView<SignUpController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            commonTextField(
-              controller: controller.nameController,
-              hintText: kHintEnterYourName,
-              labelText: kHintEnterYourName,
-              filledColor: kColorECECEC,
-              isShowElevation: false,
+            Focus(
+              onFocusChange: (value) {
+                if (value == false) {
+                  controller.userNameValidation();
+                }
+              },
+              child: commonTextField(
+                controller: controller.nameController,
+                hintText: kHintEnterYourName,
+                labelText: kHintEnterYourName,
+                filledColor: kColorECECEC,
+                isShowElevation: false,
+              ),
             ),
             Obx(
               () => Visibility(
@@ -49,12 +56,19 @@ class SignUpScreen extends GetView<SignUpController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            commonTextField(
-              controller: controller.emailIdController,
-              hintText: kHintEnterYourEmail,
-              labelText: kHintEnterYourEmail,
-              filledColor: kColorECECEC,
-              isShowElevation: false,
+            Focus(
+              onFocusChange: (value) {
+                if (value == false) {
+                  controller.emailValidation();
+                }
+              },
+              child: commonTextField(
+                controller: controller.emailIdController,
+                hintText: kHintEnterYourEmail,
+                labelText: kHintEnterYourEmail,
+                filledColor: kColorECECEC,
+                isShowElevation: false,
+              ),
             ),
             Obx(
               () => Visibility(
@@ -79,23 +93,30 @@ class SignUpScreen extends GetView<SignUpController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                commonTextField(
-                  controller: controller.passwordController,
-                  hintText: kPassword,
-                  labelText: kPassword,
-                  filledColor: kColorECECEC,
-                  isShowElevation: false,
-                  obscure: !controller.isShowPassword.value,
-                  suffixIcon: GestureDetector(
-                    onTap: () {
-                      controller.isShowPassword.value =
-                          !controller.isShowPassword.value;
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: controller.isShowPassword.value
-                          ? Icon(Icons.remove_red_eye)
-                          : SvgPicture.asset(kIconPasswordOff),
+                Focus(
+                  onFocusChange: (value) {
+                    if (value == false) {
+                      controller.passwordValidation();
+                    }
+                  },
+                  child: commonTextField(
+                    controller: controller.passwordController,
+                    hintText: kPassword,
+                    labelText: kPassword,
+                    filledColor: kColorECECEC,
+                    isShowElevation: false,
+                    obscure: !controller.isShowPassword.value,
+                    suffixIcon: GestureDetector(
+                      onTap: () {
+                        controller.isShowPassword.value =
+                            !controller.isShowPassword.value;
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(18.0),
+                        child: controller.isShowPassword.value
+                            ? Icon(Icons.remove_red_eye)
+                            : SvgPicture.asset(kIconPasswordOff),
+                      ),
                     ),
                   ),
                 ),
@@ -124,23 +145,30 @@ class SignUpScreen extends GetView<SignUpController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                commonTextField(
-                  controller: controller.confirmPasswordController,
-                  hintText: kConfirmPassword,
-                  labelText: kConfirmPassword,
-                  filledColor: kColorECECEC,
-                  isShowElevation: false,
-                  obscure: !controller.isShowConfirmPassword.value,
-                  suffixIcon: GestureDetector(
-                    onTap: () {
-                      controller.isShowConfirmPassword.value =
-                          !controller.isShowConfirmPassword.value;
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: controller.isShowConfirmPassword.value
-                          ? Icon(Icons.remove_red_eye)
-                          : SvgPicture.asset(kIconPasswordOff),
+                Focus(
+                  onFocusChange: (value) {
+                    if (value == false) {
+                      controller.confirmPasswordValidation(isFocus: true);
+                    }
+                  },
+                  child: commonTextField(
+                    controller: controller.confirmPasswordController,
+                    hintText: kConfirmPassword,
+                    labelText: kConfirmPassword,
+                    filledColor: kColorECECEC,
+                    isShowElevation: false,
+                    obscure: !controller.isShowConfirmPassword.value,
+                    suffixIcon: GestureDetector(
+                      onTap: () {
+                        controller.isShowConfirmPassword.value =
+                            !controller.isShowConfirmPassword.value;
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(18.0),
+                        child: controller.isShowConfirmPassword.value
+                            ? Icon(Icons.remove_red_eye)
+                            : SvgPicture.asset(kIconPasswordOff),
+                      ),
                     ),
                   ),
                 ),

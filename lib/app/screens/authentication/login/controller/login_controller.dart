@@ -45,7 +45,7 @@ class LoginController extends GetxController {
     Get.find<LocalStorage>().writeBoolToStorage(kStorageIsLoggedIn, true);
     Get.find<LocalStorage>().isLoggedIn.value = true;
     Get.offAllNamed(kRouteBottomNavScreen);
-    Get.find<BottomNavController>().changeTabIndex(0);
+    // Get.find<BottomNavController>().changeTabIndex(0);
     // Navigator.popAndPushNamed(Get.context!, kRouteBottomNavScreen);
     // Navigator.pushReplacement(Get.context!, MaterialPageRoute(builder: (BuildContext context){
     //   return BottomNavScreen();
@@ -89,7 +89,7 @@ class LoginController extends GetxController {
     }
   }
 
-  void passwordValidation() {
+  void passwordValidation({bool isFocus = false}) {
     isValidPassword.value = false;
     if (passwordController.text.trim().isNotEmpty) {
       if (passwordController.text.trim().length >= 8) {
@@ -103,7 +103,7 @@ class LoginController extends GetxController {
       passwordErrorText.value = kEmptyPassword;
       isValidPassword.value = false;
     }
-    if (isValidEmail.value && isValidPassword.value) {
+    if (isValidEmail.value && isValidPassword.value && isFocus ==false) {
       checkUserInput();
     }
   }

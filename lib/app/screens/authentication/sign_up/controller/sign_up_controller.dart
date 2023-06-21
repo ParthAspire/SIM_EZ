@@ -108,7 +108,7 @@ class SignUpController extends GetxController {
     print('isValidPassword :: ${isValidPassword.value}');
   }
 
-  void confirmPasswordValidation() {
+  void confirmPasswordValidation({bool isFocus = false}) {
     isValidConfirmPassword.value = false;
     if (confirmPasswordController.text.trim().isNotEmpty) {
       if (confirmPasswordController.text.trim() ==
@@ -131,7 +131,8 @@ class SignUpController extends GetxController {
         emailIdController.text.trim().isNotEmpty &&
         nameController.text.trim().isNotEmpty &&
         passwordController.text.trim().isNotEmpty &&
-        confirmPasswordController.text.trim().isNotEmpty) {
+        confirmPasswordController.text.trim().isNotEmpty &&
+        isFocus == false) {
       checkUserInput();
     }
   }
@@ -201,9 +202,9 @@ class SignUpController extends GetxController {
   /// social media login api call
   Future<void> socialMediaLoginApi(
       {required String name,
-        String? emailId,
-        required String socialId,
-        required String loginType}) async {
+      String? emailId,
+      required String socialId,
+      required String loginType}) async {
     try {
       var requestModel = SocialMediaLoginRequestModel(
         name: name,
@@ -226,11 +227,12 @@ class SignUpController extends GetxController {
       LoggerUtils.logException('socialMediaLoginApi', e);
     }
   }
+
   void navigateToDashboardScreen() {
     Get.find<LocalStorage>().writeBoolToStorage(kStorageIsLoggedIn, true);
     Get.find<LocalStorage>().isLoggedIn.value = true;
     Get.offAllNamed(kRouteBottomNavScreen);
-    Get.find<BottomNavController>().changeTabIndex(0);
+    // Get.find<BottomNavController>().changeTabIndex(0);
     // Navigator.popAndPushNamed(Get.context!, kRouteBottomNavScreen);
     // Navigator.pushReplacement(Get.context!, MaterialPageRoute(builder: (BuildContext context){
     //   return BottomNavScreen();
