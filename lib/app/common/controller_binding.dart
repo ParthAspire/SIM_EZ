@@ -56,9 +56,9 @@ class ControllerBinding extends Bindings {
       () => BottomNavController(),
       fenix: true,
     );
-    Get.lazyPut<StoreBaseController>(
-      () => StoreBaseController(),
-      fenix: true,
+    Get.put<StoreBaseController>(
+       StoreBaseController(),
+      permanent: true,
     );
     Get.lazyPut<MyESimBaseController>(
       () => MyESimBaseController(),

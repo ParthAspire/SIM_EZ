@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:sim_ez/app/common/local_storage_constants.dart';
 import 'package:sim_ez/app/common/rounting_constants.dart';
@@ -15,22 +16,46 @@ class StoreBaseController extends GetxController {
 
   Rx<ProfileData> userDetails = ProfileData().obs;
 
-
   RxBool isLoggedIn = false.obs;
+  RxBool isShowLoader = true.obs;
 
+  ScrollController globalSimListController = ScrollController();
 
   TextEditingController searchController = TextEditingController();
+  RxBool isShowFab = true.obs;
 
   @override
   Future<void> onInit() async {
-    Get.lazyPut(() => UserRepo(),fenix: true);
+    Get.lazyPut(() => UserRepo(), fenix: true);
     isLoggedIn.value =
-    await localStorage.getBoolFromStorage(kStorageIsLoggedIn);
+        await localStorage.getBoolFromStorage(kStorageIsLoggedIn);
     Get.find<LocalStorage>().isLoggedIn.listen((p0) {
       isLoggedIn.value = p0;
       getUserDetailsFromServer();
+      // currentIndex.value = 0;
     });
     await getUserDetailsFromServer();
+
+
+    globalSimListController.addListener(() {
+      if (globalSimListController.position.userScrollDirection == ScrollDirection.reverse) {
+        isShowFab.value = false;
+      } else if (globalSimListController.position.userScrollDirection == ScrollDirection.forward) {
+        isShowFab.value= true;
+      }
+      // if (globalSimListController.position.userScrollDirection ==
+      //     ScrollDirection.reverse) {
+
+        // if (isShowFab.value != false) {
+        //   isShowFab.value = false;
+        // }
+        // else {
+        //   if(isShowFab.value!=true){
+        //     isShowFab.value =true;
+        //   }
+        // }
+      // }
+    });
     super.onInit();
   }
 
@@ -40,7 +65,7 @@ class StoreBaseController extends GetxController {
 
       if (response != null && response.responseData != null) {
         userDetails.value = response.responseData!;
-        userName.value = userDetails.value.name??'';
+        userName.value = userDetails.value.name ?? '';
       }
     } catch (e) {
       LoggerUtils.logException('getUserDetailsFromServer', e);
@@ -49,5 +74,17 @@ class StoreBaseController extends GetxController {
 
   void navigateToSelectedCountrySimsScreen() {
     Get.toNamed(kRouteSelectedCountrySimsScreen);
+  }
+
+  void navigateToLoginScreen() {
+    Get.toNamed(kRouteMainAuthScreen);
+  }
+
+  void navigateToSimInfoScreen() {
+    Get.toNamed(kRouteSimInfoScreen);
+  }
+
+  void navigateToSecureCheckoutScreen() {
+    Get.toNamed(kRouteSecureCheckoutScreen);
   }
 }

@@ -51,7 +51,7 @@ class ProfileBaseController extends GetxController {
   }
 
   void navigateToContactUsScreen() {
-    Get.toNamed(kRouteContactUsScreen);
+    Get.toNamed(kRouteContactUsScreen,arguments: [userDetails.value]);
   }
 
   void navigateToMoreInfoScreen() {

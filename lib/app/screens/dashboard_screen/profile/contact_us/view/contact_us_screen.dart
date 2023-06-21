@@ -10,7 +10,11 @@ import 'package:sim_ez/app/screens/dashboard_screen/profile/contact_us/controlle
 import 'package:sim_ez/app/utils/text_styles.dart';
 
 class ContactUsScreen extends GetView<ContactUsController> {
-  const ContactUsScreen({Key? key}) : super(key: key);
+  ContactUsScreen({Key? key}) : super(key: key) {
+    final intentData = Get.arguments;
+    controller.setIntentData(intentData: intentData);
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -21,15 +25,18 @@ class ContactUsScreen extends GetView<ContactUsController> {
         padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 24),
         child: Column(
           children: [
+
             /// user name
-            Row(
-              children: [
-                SvgPicture.asset(kIconDefaultUser),
-                SizedBox(width: 8),
-                const Text('$kHello, UserName',
-                    style: TextStyles.k20ColorBlackBold400),
-              ],
-            ),
+            Obx(() {
+              return Row(
+                children: [
+                  SvgPicture.asset(kIconDefaultUser),
+                  SizedBox(width: 8),
+                  Text('$kHello, ${controller.userDetails.value.name ?? ''}',
+                      style: TextStyles.k20ColorBlackBold400),
+                ],
+              );
+            }),
 
             /// first name textfield
             Padding(
